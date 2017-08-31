@@ -1,0 +1,7 @@
+set nohlsearch
+set incsearch
+" Quit insert mode
+inoremap jk <Esc>
+
+" Quit visual mode
+vnoremap v <Esc>
