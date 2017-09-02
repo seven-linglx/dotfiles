@@ -29,7 +29,7 @@ ZSH_THEME="ys"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -51,7 +51,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions extract)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions extract osx)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/indigo/setup.zsh
@@ -84,7 +84,12 @@ source /opt/ros/indigo/setup.zsh
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color tmux -2"
+alias tmuxconfig="vim ~/.tmux.conf"
+alias tree="tree -aL 2"
+alias cm="catkin_make"
+alias cb="catkin build"
 alias c='clear'
 alias f='fuck'
 alias gs="git status"
+alias lg="git lg"
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
