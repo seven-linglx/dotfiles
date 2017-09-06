@@ -88,8 +88,8 @@ alias tmuxconfig="vim ~/.tmux.conf"
 alias tree="tree -aL 2"
 alias cm="catkin_make"
 alias cb="catkin build"
+alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias c='clear'
 alias f='fuck'
-alias gs="git status"
-alias lg="git lg"
+alias glg="git lg"
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh

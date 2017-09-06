@@ -13,6 +13,7 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"C99",
 		"Emmet",
 		"Pylinter",
 		"Python Flake8 Lint"

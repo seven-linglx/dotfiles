@@ -7,4 +7,4 @@ let g:spacevim_enable_tabline_filetype_icon = 0
 let timeoutlen = 300
 set nohlsearch
 call SpaceVim#layers#load('tags')
-
+call SpaceVim#layers#load('autocomplete', {'auto-completion-tab-key-behavior':'smart'})
