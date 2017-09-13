@@ -7,8 +7,8 @@ export EDITOR='vim'
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="ys"
+ZSH_THEME="me-robbyrussell"
+# ZSH_THEME="ys"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -81,6 +81,7 @@ source /opt/ros/indigo/setup.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+# eog: open picture
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color tmux -2"
@@ -91,5 +92,6 @@ alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias c='clear'
 alias f='fuck'
+alias gs="git status"
 alias glg="git lg"
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
