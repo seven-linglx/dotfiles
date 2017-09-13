@@ -91,5 +91,6 @@ alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias c='clear'
 alias f='fuck'
+alias gs="git status"
 alias glg="git lg"
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
