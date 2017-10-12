@@ -2,6 +2,11 @@
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Softwares/ParaView/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/home/linglx/.oh-my-zsh
+
+export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3
+export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3/site-packages
+export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3/site-packages/vtk
+
 # User
 export EDITOR='vim'
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -51,7 +56,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions extract osx)
+plugins=(git gitfast zsh-syntax-highlighting zsh-autosuggestions extract osx)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/indigo/setup.zsh
@@ -90,6 +95,7 @@ alias tree="tree -aL 2"
 alias cm="catkin_make"
 alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
+alias rl="roslaunch"
 alias c='clear'
 alias f='fuck'
 alias gs="git status"

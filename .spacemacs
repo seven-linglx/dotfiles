@@ -42,7 +42,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ycmd
+     ;; ycmd
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t
@@ -60,7 +60,7 @@ values."
      ;; spell-checking
      (gtags :variable gtags-enable-by-default t)
      imenu-list
-     syntax-checking
+     ;; syntax-checking
      version-control
      )
    ;; List of additional packages that will be installed without being
@@ -146,7 +146,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro for Powerline"
-                               :size 17
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -325,20 +325,21 @@ before packages are loaded. If you are unsure, you should try in setting them in
 (defun dotspacemacs/user-config ()
   (setq-default evil-escape-key-sequence "jk")
   (setq-default evil-escape-delay 0.3)
-  (setq ycmd-server-command '("python" "/home/linglx/.vim.self/plugged/YouCompleteMe/third_party/ycmd/ycmd"))
-  (setq ycmd-global-config "/home/linglx/.ycm_extra_conf.py")
-  (setq ycmd-force-semantic-completion t)
-  (setq ycmd-auto-trigger-semantic-completion t)
+  ;; (setq ycmd-server-command '("python" "/home/linglx/.vim.self/plugged/YouCompleteMe/third_party/ycmd/ycmd"))
+  ;; (setq ycmd-global-config "/home/linglx/.ycm_extra_conf.py")
+  ;; (setq ycmd-force-semantic-completion t)
+  ;; (setq ycmd-auto-trigger-semantic-completion t)
   (setq url-show-status nil)
+  (setq global-evil-search-highlight-persist nil)
   (setq request-message-level -1)
   ;; global company mode
   (global-company-mode)
   ;; global flycheck mode
   ;; (global-flycheck-mode)
   ;; (require 'ycmd)
-  (add-hook 'c++-mode-hook 'ycmd-mode)
+  ;; (add-hook 'c++-mode-hook 'ycmd-mode)
   ;; (require 'company-ycmd)
-  (company-ycmd-setup)
+  ;; (company-ycmd-setup)
   (setq company-idle-delay 0.2)
 ) 
 ;; Do not write anything past this comment. This is where Emacs will

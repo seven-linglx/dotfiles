@@ -45,6 +45,7 @@ nnoremap H ^
 " Move to the end of line
 nnoremap L $
 
+nnoremap K %
 " Redo
 nnoremap U <C-r>
 
