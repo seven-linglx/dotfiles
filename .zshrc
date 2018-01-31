@@ -8,7 +8,7 @@ export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3/
 export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3/site-packages/vtk
 
 # User
-export EDITOR='vim'
+export EDITOR='nvim'
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -87,12 +87,12 @@ export MANPATH="/usr/local/man:$MANPATH"
 #
 # Example aliases
 # eog: open picture
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color tmux -2"
-alias tmuxconfig="vim ~/.tmux.conf"
+alias tmuxconfig="nvim ~/.tmux.conf"
 alias tree="tree -aL 2"
-alias find="find -iname"
+alias ls="ls -1 --color"
 alias cm="catkin_make"
 alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
