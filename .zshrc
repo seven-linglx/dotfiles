@@ -1,11 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Softwares/ParaView/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/linglx/.oh-my-zsh
 
-export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3
-export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3/site-packages
-export PYTHONPATH=$PYTHONPATH:/home/linglx/Works/build/install/lib/paraview-4.3/site-packages/vtk
+## cuda
+export CUDA_HOME=/usr/local/cuda-8.0
+export PATH=$PATH:$CUDA_HOME/bin
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # User
 export EDITOR='vim'
@@ -92,8 +94,9 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color tmux -2"
 alias tmuxconfig="vim ~/.tmux.conf"
 alias tree="tree -aL 2"
-alias find="find -iname"
+alias ls="ls -1 --color"
 alias cm="catkin_make"
+alias cmr="catkin_make --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias rl="roslaunch"

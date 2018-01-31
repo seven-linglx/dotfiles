@@ -1,0 +1,48 @@
+{
+        "vim.easymotion": true,
+        "vim.incsearch": true,
+        "vim.useSystemClipboard": true,
+        "vim.useCtrlKeys": true,
+        "vim.hlsearch": true,
+        "vim.insertModeKeyBindings": [
+            {
+                "before": ["j","k"],
+                "after": ["<Esc>"]
+            }
+        ],
+        "vim.otherModesKeyBindingsNonRecursive": [
+            {
+                "before": ["<leader>","s"],
+                "after": ["<C-s>"]
+            },
+            {
+                "before":["K"],
+                "after":["%"]
+            },
+            {
+                "before":["<C-n>"],
+                "after":[],
+                "commands": [
+                    {
+                        "command": ":nohl"
+                    }
+                ]
+            }
+        ],
+        "vim.leader": "<space>",
+        "vim.handleKeys":{
+            "<C-a>": false,
+            "<C-f>": false
+        },
+    "editor.fontSize": 15,
+    "workbench.colorTheme": "One Dark Pro Vivid",
+    "editor.lineHeight": 22,
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format-3.9",
+    "workbench.activityBar.visible": false,
+    "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
+    "python.linting.pylintArgs": [
+        "--disable-msg=E1129"
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "todohighlight.isEnable": true,
+}
