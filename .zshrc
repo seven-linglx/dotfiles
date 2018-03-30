@@ -10,7 +10,7 @@ export PATH=$PATH:$CUDA_HOME/bin
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # User
-export EDITOR='vim'
+export EDITOR='nvim'
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -89,10 +89,10 @@ export MANPATH="/usr/local/man:$MANPATH"
 #
 # Example aliases
 # eog: open picture
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color tmux -2"
-alias tmuxconfig="vim ~/.tmux.conf"
+alias tmuxconfig="nvim ~/.tmux.conf"
 alias tree="tree -aL 2"
 alias ls="ls -1 --color"
 alias cm="catkin_make"
