@@ -33,7 +33,7 @@ values."
    '(
      yaml
      octave
-     irony
+     ;; irony
      html
      javascript
      python
@@ -328,6 +328,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 (defun dotspacemacs/user-config ()
   (setq-default evil-escape-key-sequence "jk")
   (define-key evil-normal-state-map (kbd "K") (kbd "%"))
+  (define-key evil-normal-state-map (kbd "C-]") 'helm-gtags-find-tag)
+  (define-key evil-normal-state-map (kbd "C-[")   'evil-jump-backward)
   (setq-default evil-escape-delay 0.3)
   ;; (setq ycmd-server-command '("python" "/home/linglx/.vim.self/plugged/YouCompleteMe/third_party/ycmd/ycmd"))
   ;; (setq ycmd-global-config "/home/linglx/.ycm_extra_conf.py")
