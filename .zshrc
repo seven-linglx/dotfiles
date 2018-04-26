@@ -36,7 +36,7 @@ ZSH_THEME="me-robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -58,7 +58,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast zsh-syntax-highlighting zsh-autosuggestions extract osx)
+plugins=(git gitfast zsh-syntax-highlighting textmate lighthouse zsh-autosuggestions extract osx)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/indigo/setup.zsh
@@ -89,8 +89,8 @@ export MANPATH="/usr/local/man:$MANPATH"
 #
 # Example aliases
 # eog: open picture
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color tmux -2"
 alias tmuxconfig="nvim ~/.tmux.conf"
 alias tree="tree -aL 2"
