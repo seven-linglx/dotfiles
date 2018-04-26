@@ -38,6 +38,7 @@
     "workbench.colorTheme": "One Dark Pro Vivid",
     "editor.lineHeight": 22,
     "C_Cpp.clang_format_path": "/usr/bin/clang-format-3.9",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
     "workbench.activityBar.visible": false,
     "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
     "python.linting.pylintArgs": [
@@ -45,4 +46,9 @@
     ],
     "explorer.confirmDragAndDrop": false,
     "todohighlight.isEnable": true,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "editor.minimap.enabled": true,
+    "workbench.statusBar.visible": true,
+    "update.channel": "none",
 }
