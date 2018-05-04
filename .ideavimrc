@@ -67,6 +67,7 @@ nnoremap <Leader>w\| <C-W>v
 " Tab operation
 nnoremap tn gt
 nnoremap tp gT
+nnoremap tc :close
 
 " ==================================================
 " Show all the provided actions via `:actionlist`
