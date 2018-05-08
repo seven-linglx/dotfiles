@@ -2,8 +2,9 @@
         "vim.easymotion": true,
         "vim.incsearch": true,
         "vim.useSystemClipboard": true,
-        "vim.useCtrlKeys": true,
         "vim.hlsearch": true,
+        "vim.leader": "<space>",
+        "vim.cmdLineInitialColon": true,
         "vim.insertModeKeyBindings": [
             {
                 "before": ["j","k"],
@@ -12,8 +13,30 @@
         ],
         "vim.otherModesKeyBindingsNonRecursive": [
             {
-                "before": ["<leader>","s"],
-                "after": ["<C-s>"]
+                "before": ["<leader>","f","s"],
+                "after": [],
+                "commands": [
+                    {
+                        "command": "workbench.action.files.save",
+                        "args": []
+                    }
+                ]
+            },
+            {
+                "before":["t","n"],
+                "after": ["g","t"],
+            },
+            {
+                "before":["t","p"],
+                "after": ["g","T"],
+            },
+            {
+                "before": ["<leader>","g","h"],
+                "after": ["^"]
+            },
+            {
+                "before": ["<leader>","g","l"],
+                "after": ["$"]
             },
             {
                 "before":["K"],
@@ -24,17 +47,17 @@
                 "after":[],
                 "commands": [
                     {
-                        "command": ":nohl"
+                        "command": ":nohl",
+                        "args":[]
                     }
                 ]
             }
         ],
-        "vim.leader": "<space>",
         "vim.handleKeys":{
             "<C-a>": false,
             "<C-f>": false
         },
-    "editor.fontSize": 15,
+    "editor.fontSize": 16,
     "workbench.colorTheme": "One Dark Pro Vivid",
     "editor.lineHeight": 22,
     "C_Cpp.clang_format_path": "/usr/bin/clang-format-3.9",
@@ -48,7 +71,13 @@
     "todohighlight.isEnable": true,
     "explorer.confirmDelete": false,
     "window.zoomLevel": 0,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "workbench.statusBar.visible": true,
     "update.channel": "none",
+    "window.menuBarVisibility": "toggle",
+    "editor.lineNumbers": "relative",
+    "editor.fontFamily": "'Source Code Pro for Powerline', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+    "html.format.wrapLineLength": 80,
 }

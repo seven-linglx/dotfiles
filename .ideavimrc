@@ -40,10 +40,10 @@ inoremap jk <Esc>
 vnoremap v <Esc>
 
 " Move to the start of line
-nnoremap H ^
+nnoremap <Leader>gh ^
 
 " Move to the end of line
-nnoremap L $
+nnoremap <Leader>gl $
 
 nnoremap K %
 " Redo
@@ -67,7 +67,7 @@ nnoremap <Leader>w\| <C-W>v
 " Tab operation
 nnoremap tn gt
 nnoremap tp gT
-nnoremap tc :close
+nnoremap tc :close<CR>
 
 " ==================================================
 " Show all the provided actions via `:actionlist`

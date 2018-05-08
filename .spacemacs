@@ -54,14 +54,17 @@ values."
      emacs-lisp
      git
      markdown
-     (org :variable org-enable-github-support t)
+     (org :variable
+            org-enable-github-support t)
      (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     (gtags :variable gtags-enable-by-default t)
+     (gtags :variable
+            gtags-enable-by-default t)
      imenu-list
      ;; syntax-checking
      version-control
@@ -348,6 +351,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; (require 'company-ycmd)
   ;; (company-ycmd-setup)
   (setq company-idle-delay 0.2)
+  (spacemacs/set-leader-keys "gh" "^")
+  (spacemacs/set-leader-keys "gl" "$")
+
+  ;; Bind clang-format-region to C-M-tab in all modes:
+  (global-set-key [f12] 'clang-format-region)
+  ;; Bind clang-format-buffer to tab on the c++-mode only:
+  (add-hook 'c++-mode-hook 'clang-format-bindings)
+  (defun clang-format-bindings ()
+    (define-key c++-mode-map (kbd "}") 'clang-format-buffer))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
