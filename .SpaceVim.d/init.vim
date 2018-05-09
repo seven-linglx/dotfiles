@@ -6,10 +6,13 @@ let g:spacevim_buffer_index_type = 4
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_debug = 1
 let timeoutlen = 100
+" let g:spacevim_guifont = ''
 set nohlsearch
 vnoremap v <Esc>
 nnoremap <SPC>gh ^
 nnoremap <SPC>gl $
+nnoremap K %
 call SpaceVim#layers#load('tags')
 call SpaceVim#layers#load('fzf')
+call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('autocomplete', {'auto-completion-tab-key-behavior':'smart'})
