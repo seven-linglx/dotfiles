@@ -58,7 +58,7 @@ ZSH_THEME="me-robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast zsh-syntax-highlighting textmate lighthouse zsh-autosuggestions extract osx)
+plugins=(git autojump zsh-syntax-highlighting zsh-autosuggestions extract)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/indigo/setup.zsh
@@ -101,7 +101,13 @@ alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias rl="roslaunch"
 alias c='clear'
-alias f='fuck'
+alias f='fzf-tmux'
 alias gs="git status"
 alias glg="git lg"
-[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
+
+# [[ -s $HOME/.autojump/etc/profile.d/autojump.zsh ]] && . $HOME/.autojump/etc/profile.d/autojump.zsh
+
+# [ -f $HOME/.fzf.zsh ] &&
+source $HOME/.fzf.zsh
+source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
