@@ -24,7 +24,7 @@ ZSH_THEME="me-robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -58,7 +58,7 @@ ZSH_THEME="me-robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-syntax-highlighting zsh-autosuggestions extract)
+plugins=(git autojump zsh-syntax-highlighting zsh-autosuggestions extract osx)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/indigo/setup.zsh
