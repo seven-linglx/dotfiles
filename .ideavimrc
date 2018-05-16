@@ -78,7 +78,7 @@ nnoremap tc :close<CR>
 " but preserve ideavim search
 nnoremap <Leader>/ /
 
-nnoremap <Leader>;; :action CommentByLineComment<CR>
+nnoremap <Leader>cl :action CommentByLineComment<CR>
 
 nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
 nnoremap <Leader>br :action ViewBreakpoints<CR>

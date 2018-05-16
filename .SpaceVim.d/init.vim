@@ -5,7 +5,7 @@ let g:spacevim_statusline_inactive_separator = 'bar'
 let g:spacevim_buffer_index_type = 4
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_debug = 1
-let timeoutlen = 100
+let timeoutlen = 300
 " let g:spacevim_guifont = ''
 set nohlsearch
 vnoremap v <Esc>

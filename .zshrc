@@ -24,7 +24,7 @@ ZSH_THEME="me-robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -58,7 +58,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump zsh-syntax-highlighting zsh-autosuggestions extract osx)
+plugins=(git gitfast autojump zsh-syntax-highlighting textmate lighthouse zsh-autosuggestions extract osx)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/indigo/setup.zsh
@@ -101,13 +101,8 @@ alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias rl="roslaunch"
 alias c='clear'
-alias f='fzf-tmux'
+alias f='fuck'
 alias gs="git status"
 alias glg="git lg"
-
-# [[ -s $HOME/.autojump/etc/profile.d/autojump.zsh ]] && . $HOME/.autojump/etc/profile.d/autojump.zsh
-
-# [ -f $HOME/.fzf.zsh ] &&
-source $HOME/.fzf.zsh
-source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
