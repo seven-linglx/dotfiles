@@ -35,7 +35,7 @@ values."
      octave
      ;; irony
      html
-     javascript
+     ;; javascript
      python
      vimscript
      csv
@@ -355,11 +355,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (spacemacs/set-leader-keys "gl" "$")
 
   ;; Bind clang-format-region to C-M-tab in all modes:
-  (global-set-key [f12] 'clang-format-region)
+  (spacemacs/set-leader-keys "cr" 'clang-format-region)
   ;; Bind clang-format-buffer to tab on the c++-mode only:
-  (add-hook 'c++-mode-hook 'clang-format-bindings)
-  (defun clang-format-bindings ()
-    (define-key c++-mode-map (kbd "}") 'clang-format-buffer))
+  (spacemacs/set-leader-keys "cf" 'clang-format-buffer)
+  ;; (add-hook 'c++-mode-hook 'clang-format-bindings)
+  ;; (defun clang-format-bindings ()
+    ;; (define-key c++-mode-map [tab] 'clang-format-buffer))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -372,7 +373,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(package-selected-packages
    (quote
-    (web-mode scss-mode pug-mode org-mime ghub emmet-mode company-web haml-mode company-irony irony yaml-mode imenu-list helm-gtags ggtags company-quickhelp web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode disaster company-c-headers cmake-mode clang-format flycheck-ycmd company-ycmd ycmd request-deferred let-alist deferred org-category-capture org-pomodoro markdown-toc flycheck-pos-tip pos-tip org-projectile org-present alert log4e gntp org-download mmm-mode markdown-mode htmlize gnuplot git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck diff-hl yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic vimrc-mode dactyl-mode unfill smeargle orgit mwim magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete csv-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (tagedit slim-mode sass-mode less-css-mode helm-css-scss web-mode scss-mode pug-mode org-mime ghub emmet-mode company-web haml-mode company-irony irony yaml-mode imenu-list helm-gtags ggtags company-quickhelp web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode disaster company-c-headers cmake-mode clang-format flycheck-ycmd company-ycmd ycmd request-deferred let-alist deferred org-category-capture org-pomodoro markdown-toc flycheck-pos-tip pos-tip org-projectile org-present alert log4e gntp org-download mmm-mode markdown-mode htmlize gnuplot git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck diff-hl yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic vimrc-mode dactyl-mode unfill smeargle orgit mwim magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete csv-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
