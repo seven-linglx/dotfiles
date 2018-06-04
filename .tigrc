@@ -5,8 +5,13 @@ bind main    G  none
 bind generic G  move-last-line
 bind generic <C-f> move-page-down
 bind generic <C-b> move-page-up
+
 # vim-fugitive like keybinding in status-view
+bind status U status-revert
+bind status c none
+bind status cc !git commit
+bind status ca !git commit --amend
 bind status D !git difftool
-bind status + !git commit --amend
+
 # User-defined internal command that reloads ~/.tigrc
 bind generic S :source ~/.tigrc
