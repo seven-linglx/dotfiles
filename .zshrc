@@ -10,7 +10,7 @@ export PATH=$PATH:$CUDA_HOME/bin
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 # User
-export EDITOR='nvim'
+export EDITOR='vim'
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -24,7 +24,7 @@ ZSH_THEME="me-robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -58,10 +58,10 @@ ZSH_THEME="me-robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast autojump zsh-syntax-highlighting textmate lighthouse zsh-autosuggestions extract osx)
+plugins=(git gitfast tig autojump zsh-syntax-highlighting textmate lighthouse zsh-autosuggestions extract osx)
 
 source $ZSH/oh-my-zsh.sh
-source /opt/ros/indigo/setup.zsh
+source /opt/ros/kinetic/setup.zsh
 # User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"
@@ -92,9 +92,10 @@ export MANPATH="/usr/local/man:$MANPATH"
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias tmux="TERM=screen-256color tmux -2"
-alias tmuxconfig="nvim ~/.tmux.conf"
+alias tmuxconfig="vim ~/.tmux.conf"
 alias tree="tree -aL 2"
 alias ls="ls -1 --color"
+alias lsa="ls -a -1 --color"
 alias cm="catkin_make"
 alias cmr="catkin_make --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias cb="catkin build"
@@ -102,7 +103,7 @@ alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias rl="roslaunch"
 alias c='clear'
 alias f='fuck'
-alias gs="git status"
+# alias gs="git status"
 alias glg="git lg"
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -5,14 +5,20 @@ let g:spacevim_statusline_inactive_separator = 'bar'
 let g:spacevim_buffer_index_type = 4
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_debug = 1
+let g:spacevim_max_column = 80
 let timeoutlen = 300
+let g:clang_library_path = '/usr/lib/llvm-5.0/lib/'
 " let g:spacevim_guifont = ''
 set nohlsearch
+set wrap
 vnoremap v <Esc>
-nnoremap <SPC>gh ^
-nnoremap <SPC>gl $
+" nnoremap <leader>gh ^
+" nnoremap <SPC>gl $
 nnoremap K %
 call SpaceVim#layers#load('tags')
 call SpaceVim#layers#load('fzf')
 call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('autocomplete', {'auto-completion-tab-key-behavior':'smart'})
+" call SpaceVim#custom#SPCGroupName(['z'], 'CustomGroup')
+" call SpaceVim#custom#SPC('nmap', ['z', 'l'], '$', 'go to end of line', 1)
+" call SpaceVim#custom#SPC('nnoremap', ['z', 'h'], '^', 'go to start of line', 1)

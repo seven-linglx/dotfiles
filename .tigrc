@@ -1,0 +1,12 @@
+# vim-like keybinding
+bind generic g  none
+bind generic gg move-first-line
+bind main    G  none
+bind generic G  move-last-line
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
+# vim-fugitive like keybinding in status-view
+bind status D !git difftool
+bind status + !git commit --amend
+# User-defined internal command that reloads ~/.tigrc
+bind generic S :source ~/.tigrc
