@@ -1,76 +1,81 @@
 {
-        "vim.easymotion": true,
-        "vim.incsearch": true,
-        "vim.useSystemClipboard": true,
-        "vim.hlsearch": true,
-        "vim.leader": "<space>",
-        "vim.cmdLineInitialColon": true,
-        "vim.insertModeKeyBindings": [
-            {
-                "before": ["j","k"],
-                "after": ["<Esc>"]
-            }
-        ],
-        "vim.otherModesKeyBindingsNonRecursive": [
-            {
-                "before": ["<leader>","f","s"],
-                "after": [],
-                "commands": [
-                    {
-                        "command": "workbench.action.files.save",
-                        "args": []
-                    }
-                ]
-            },
-            {
-                "before": ["<leader>","c","l"],
-                "after": [],
-                "commands": [
-                    {
-                        "command": "editor.action.commentLine",
-                        "args": []
-                    }
-                ]
-            },
-            {
-                "before":["t","n"],
-                "after": ["g","t"],
-            },
-            {
-                "before":["t","p"],
-                "after": ["g","T"],
-            },
-            {
-                "before": ["<leader>","g","h"],
-                "after": ["^"]
-            },
-            {
-                "before": ["<leader>","g","l"],
-                "after": ["$"]
-            },
-            {
-                "before":["K"],
-                "after":["%"]
-            },
-            {
-                "before":["<C-n>"],
-                "after":[],
-                "commands": [
-                    {
-                        "command": ":nohl",
-                        "args":[]
-                    }
-                ]
-            }
-        ],
-        "vim.handleKeys":{
-            "<C-a>": false,
-            "<C-f>": false
+"vim.easymotion": true,
+"vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.cmdLineInitialColon": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>","f","s"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                }
+            ]
         },
+        {
+            "before": ["<leader>","c","l"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.commentLine",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before":["t","n"],
+            "after": ["g","t"],
+        },
+        {
+            "before":["t","p"],
+            "after": ["g","T"],
+        },
+        {
+            "before": ["<leader>","g","h"],
+            "after": ["^"]
+        },
+        {
+            "before": ["<leader>","g","l"],
+            "after": ["$"]
+        },
+        {
+            "before":["K"],
+            "after":["%"]
+        },
+        {
+            "before":["<C-n>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl",
+                    "args":[]
+                }
+            ]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
     "editor.fontSize": 16,
     "workbench.colorTheme": "One Dark Pro Vivid",
     "editor.lineHeight": 22,
-    "C_Cpp.clang_format_path": "/usr/bin/clang-format-3.9",
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format-5.0",
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "workbench.activityBar.visible": false,
     "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
@@ -84,10 +89,13 @@
     "editor.minimap.enabled": false,
     "workbench.statusBar.visible": true,
     "update.channel": "none",
-    "window.menuBarVisibility": "toggle",
+    "window.menuBarVisibility": "default",
     "editor.lineNumbers": "relative",
     "editor.fontFamily": "'Source Code Pro for Powerline', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 80,
-    "html.format.wrapLineLength": 80,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 120,
+    "workbench.editor.enablePreview": false,
+    "editor.tabSize": 2,
+    "search.location": "panel",
+    "vim.textwidth": 120,
 }

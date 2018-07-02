@@ -8,6 +8,7 @@ export ZSH=/home/linglx/.oh-my-zsh
 export CUDA_HOME=/usr/local/cuda-8.0
 export PATH=$PATH:$CUDA_HOME/bin
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export FZF_DEFAULT_COMMAND='ag'
 
 # User
 export EDITOR='vim'
@@ -58,7 +59,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast tig autojump zsh-syntax-highlighting textmate lighthouse zsh-autosuggestions extract osx)
+plugins=(git gitfast tig autojump zsh-syntax-highlighting textmate lighthouse zsh-autosuggestions extract zsh-interactive-cd osx)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/ros/kinetic/setup.zsh
@@ -103,7 +104,7 @@ alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias rl="roslaunch"
 alias c='clear'
 alias f='fuck'
-# alias gs="git status"
+alias gs="git status" # avoid conflict with order 'gs' in ubuntu system
 alias glg="git lg"
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
