@@ -1,19 +1,13 @@
 {
-"vim.easymotion": true,
-"vim.incsearch": true,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.leader": "<space>",
-    "vim.cmdLineInitialColon": true,
     "vim.insertModeKeyBindings": [
         {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
+            "before": ["j","k"],
+            "after": ["<Esc>"]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -33,6 +27,16 @@
             "commands": [
                 {
                     "command": "editor.action.commentLine",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["t","c"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
                     "args": []
                 }
             ]
@@ -98,4 +102,10 @@
     "editor.tabSize": 2,
     "search.location": "panel",
     "vim.textwidth": 120,
+    "editor.detectIndentation": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "C_Cpp.errorSquiggles": "Enabled",
+    "workbench.editor.openSideBySideDirection": "right",
+    "editor.folding": true,
+    "editor.glyphMargin": true,
 }

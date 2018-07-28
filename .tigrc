@@ -9,7 +9,7 @@ bind generic <C-b> move-page-up
 # vim-fugitive like keybinding in status-view
 bind status U status-revert
 bind status c none
-bind status cc !git commit
+bind status cc !git commit -s
 bind status ca !git commit --amend
 bind status D !git difftool
 

@@ -88,4 +88,40 @@
         "command": "-expandLineSelection",
         "when": "textInputFocus"
     },
+    { 
+        "key": "F3",
+        "command": "toggle",
+        "when": "editorTextFocus",
+        "args": {
+          "id": "minimap", // id must be unique
+          "value": [
+            {
+              "editor.minimap.enabled": true,
+            },
+            {
+              "editor.minimap.enabled": false,
+            }
+          ]
+        }
+    },
+    { 
+        "key": "F4",
+        "command": "toggle",
+        "when": "editorTextFocus",
+        "args": {
+          "id": "line number", // id must be unique
+          "value": [
+            {
+              "editor.lineNumbers": "relative",
+              "editor.folding": true,
+              "editor.glyphMargin": true,
+            },
+            {
+              "editor.lineNumbers": "off",
+              "editor.folding": false,
+              "editor.glyphMargin": false,
+            }
+          ]
+        }
+    },
 ]

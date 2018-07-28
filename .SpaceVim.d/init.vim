@@ -12,13 +12,13 @@ let g:clang_library_path = '/usr/lib/llvm-5.0/lib/'
 set nohlsearch
 set wrap
 vnoremap v <Esc>
-" nnoremap <leader>gh ^
-" nnoremap <SPC>gl $
+nnoremap <leader>gh ^
+nnoremap <leader>gl $
 nnoremap K %
 call SpaceVim#layers#load('tags')
 call SpaceVim#layers#load('fzf')
 call SpaceVim#layers#load('lang#c')
 call SpaceVim#layers#load('autocomplete', {'auto-completion-tab-key-behavior':'smart'})
-" call SpaceVim#custom#SPCGroupName(['z'], 'CustomGroup')
-" call SpaceVim#custom#SPC('nmap', ['z', 'l'], '$', 'go to end of line', 1)
-" call SpaceVim#custom#SPC('nnoremap', ['z', 'h'], '^', 'go to start of line', 1)
+" call SpaceVim#custom#SPCGroupName(['g'], 'CustomGroup')
+" call SpaceVim#custom#SPC('nmap', ['g', 'l'], '$', 'go to end of line', 1)
+" call SpaceVim#custom#SPC('nnoremap', ['g', 'h'], '^', 'go to start of line', 1)
