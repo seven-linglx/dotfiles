@@ -62,7 +62,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     spell-checking
+     ;; spell-checking
      (gtags :variable
             gtags-enable-by-default t)
      imenu-list
@@ -295,7 +295,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -341,6 +341,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq url-show-status nil)
   (setq global-evil-search-highlight-persist nil)
   (setq request-message-level -1)
+  ;; (setq show-trailing-whitespace nil)
+  (setq spacemacs-show-trailing-whitespace nil)
   ;; global company mode
   (global-company-mode)
   ;; global flycheck mode
@@ -353,14 +355,16 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq company-idle-delay 0.2)
   (spacemacs/set-leader-keys "gh" "^")
   (spacemacs/set-leader-keys "gl" "$")
+  (add-to-list 'auto-mode-alist '("\\.launch\\'" . xml-mode))
 
+  (add-hook 'c++-mode-hook 'clang-format-bindings)
+)
+(defun clang-format-bindings ()
   ;; Bind clang-format-region to C-M-tab in all modes:
   (spacemacs/set-leader-keys "cr" 'clang-format-region)
   ;; Bind clang-format-buffer to tab on the c++-mode only:
   (spacemacs/set-leader-keys "cf" 'clang-format-buffer)
-  ;; (add-hook 'c++-mode-hook 'clang-format-bindings)
-  ;; (defun clang-format-bindings ()
-    ;; (define-key c++-mode-map [tab] 'clang-format-buffer))
+  ;; (define-key c++-mode-map [tab] 'clang-format-buffer)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

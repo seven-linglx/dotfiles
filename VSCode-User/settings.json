@@ -108,4 +108,5 @@
     "workbench.editor.openSideBySideDirection": "right",
     "editor.folding": true,
     "editor.glyphMargin": true,
+    "cmake.configureOnOpen": false,
 }

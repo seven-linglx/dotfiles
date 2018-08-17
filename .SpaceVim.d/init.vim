@@ -6,7 +6,7 @@ let g:spacevim_buffer_index_type = 4
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_debug = 1
 let g:spacevim_max_column = 80
-let timeoutlen = 300
+let timeoutlen = 100
 let g:clang_library_path = '/usr/lib/llvm-5.0/lib/'
 " let g:spacevim_guifont = ''
 set nohlsearch
