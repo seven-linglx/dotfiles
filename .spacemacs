@@ -63,7 +63,7 @@ values."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t
-            c-c++-enable-clang-format-on-save t
+            ;; c-c++-enable-clang-format-on-save t
             c-c++-enable-google-style t
             ;; c-c++-enable-google-newline t
             c-c++-enable-c++11 t
@@ -375,6 +375,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-hook 'c++-mode-hook 'irony-mode)
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-comile-options)
   (add-hook 'python-mode-hook 'yapf-mode)
+  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
   ;; (require 'company-ycmd)
   ;; (company-ycmd-setup)
   (setq company-idle-delay 0.2)
@@ -383,11 +384,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'auto-mode-alist '("\\.launch\\'" . xml-mode))
 
   ;; Bind clang-format-region to C-M-tab in all modes:
-  (global-set-key [C-M-tab] 'clang-format-region)
+  ;; (global-set-key [C-tab] 'clang-format-region)
+  (spacemacs/set-leader-keys "cr" 'clang-format-region)
   ;; Bind clang-format-buffer to tab on the c++-mode only:
   (add-hook 'c++-mode-hook 'clang-format-bindings)
   (defun clang-format-bindings ()
-    (spacemacs/set-leader-keys "cf" 'clang-format-buffer)
+    (spacemacs/set-leader-keys "cf" 'clang-format-buffer) 
+    ;; (define-key c++-mode-map (spacemacs/set-leader-keys "cf") 'clang-format-buffer)
     ;; (define-key c++-mode-map [tab] 'clang-format-buffer)
   )
 )
