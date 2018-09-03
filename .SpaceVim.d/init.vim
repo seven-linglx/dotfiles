@@ -11,6 +11,7 @@ let g:clang_library_path = '/usr/lib/llvm-5.0/lib/'
 " let g:spacevim_guifont = ''
 set nohlsearch
 set wrap
+:let mapleader = ","
 vnoremap v <Esc>
 nnoremap <leader>gh ^
 nnoremap <leader>gl $

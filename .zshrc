@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/Softwares/ParaView/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/linglx/.oh-my-zsh
@@ -103,7 +103,6 @@ alias cb="catkin build"
 alias cbr="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release"
 alias rl="roslaunch"
 alias c='clear'
-alias f='fuck'
 alias gs="git status" # avoid conflict with order 'gs' in ubuntu system
 alias glg="git lg"
 [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && . ~/.autojump/etc/profile.d/autojump.zsh
