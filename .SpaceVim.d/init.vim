@@ -8,7 +8,9 @@ let g:spacevim_enable_debug = 1
 let g:spacevim_max_column = 80
 let timeoutlen = 100
 let g:clang_library_path = '/usr/lib/llvm-5.0/lib/'
+let g:spacevim_colorscheme = 'SpaceVim'
 " let g:spacevim_guifont = ''
+" :colorsheme atom
 set nohlsearch
 set wrap
 :let mapleader = ","

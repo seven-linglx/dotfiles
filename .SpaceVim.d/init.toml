@@ -1,0 +1,29 @@
+[options]
+  enable_guicolors = true
+  statusline_separator = 'arrow'
+  statusline_inactive_separator = 'bar'
+  buffer_index_type = 4
+  enable_tabline_filetype_icon = 0
+  enable_debug = 1
+  max_column = 120
+  wrap = true
+  colorscheme = 'space-vim-dark'
+  bootstrap_before = 'myspacevim#before'
+
+[[layers]]
+  name = 'tags'  
+
+[[layers]]
+  name = 'fzf'  
+
+[[layers]]
+  name = 'lang#c'
+
+[[layers]]
+  name = 'autocomplete'
+  auto-completion-return-key-behavior = "complete"
+  auto-completion-tab-key-behavior = "cycle"
+
+[[custom_plugins]]
+  name = 'liuchengxu/space-vim-dark'
+  merged = false
