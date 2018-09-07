@@ -3,7 +3,8 @@
   statusline_separator = 'arrow'
   statusline_inactive_separator = 'bar'
   buffer_index_type = 4
-  enable_tabline_filetype_icon = 0
+  enable_tabline_filetype_icon = false
+  enable_statusline_display_mode = true
   enable_debug = 1
   max_column = 120
   wrap = true
@@ -12,6 +13,9 @@
 
 [[layers]]
   name = 'tags'  
+
+[[layers]]
+  name = 'tmux'  
 
 [[layers]]
   name = 'fzf'  
