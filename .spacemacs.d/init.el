@@ -31,35 +31,28 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     yaml
-     octave
-     ;; irony
-     html
-     ;; javascript
-     (python :variables
-             python-enable-yapf-format-on-save t)
-     vimscript
-     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
-     ;; ycmd
-     (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup t
-                      auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-help-tooltip t
-                      :disabled-for
-                      org
-                      markdown)
+     (helm :variables helm-enable-auto-resize t)
+     ;; helm-ls-git
+     ;; counsel-git
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar t)
+     auto-completion
      better-defaults
+     python
      emacs-lisp
+     imenu-list
      git
-     markdown
+     (ivy :variable
+          ivy-wrap t)
+     ;; ycmd
+     ;; markdown
      (org :variable
-            org-enable-github-support t)
+          org-enable-github-support t)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support t
@@ -69,20 +62,16 @@ values."
             c-c++-enable-c++11 t
             ;; c-c++-enable-auto-newline t
             clang-format-style "file")
-     (cmake :variables
-            cmake-enable-cmake-ide-support t)
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
-     ;; spell-checking
      (gtags :variable
             gtags-enable-by-default t)
-     imenu-list
+     (cmake :variables
+            cmake-enable-cmake-ide-support nil)
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
      syntax-checking
-     version-control
-     (chinese :variables
-              chinese-enable-fcitx t
-              chinese-default-input-method 'wubi)
+     ;; version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -161,6 +150,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
+                         solarized
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -171,11 +161,12 @@ values."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.3)
+   ;; dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.3)
+   dotspacemacs-mode-line-theme 'doom
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro for Powerline"
-                               :size 16
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -318,7 +309,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server t
+   dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -342,60 +333,40 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default
-   ;;master use --, develop use -
-   configuration-layer-elpa-archives
-   '(("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-     ("gnu-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-     ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
-  (setq tramp-use-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  (setq configuration-layer--elpa-archives
+    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") 
+      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/") 
+      ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
+    )
 )
 
 (defun dotspacemacs/user-config ()
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  (setq c-default-style "linux")
+  (setq projectile-enable-caching t)
+  (setq inhibit-compacting-font-caches t) ;; for doom-modeline
+  (spacemacs/set-leader-keys "pf" 'counsel-projectile-find-file)
+  ;; (spacemacs/set-leader-keys "pf" 'counsel-git)
+  (setq projectile-require-project-root t)
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-indexing-method 'native)
   (setq-default evil-escape-key-sequence "jk")
   (define-key evil-normal-state-map (kbd "K") (kbd "%"))
   (define-key evil-normal-state-map (kbd "C-]") 'helm-gtags-find-tag)
   (define-key evil-normal-state-map (kbd "C-[")   'evil-jump-backward)
-  (setq-default evil-escape-delay 0.3)
-  ;; (setq ycmd-server-command '("python" "/home/linglx/.vim.self/plugged/YouCompleteMe/third_party/ycmd/ycmd"))
-  ;; (setq ycmd-global-config "/home/linglx/.ycm_extra_conf.py")
-  ;; (setq ycmd-force-semantic-completion t)
-  ;; (setq ycmd-auto-trigger-semantic-completion t)
-  (setq url-show-status nil)
-  (setq global-evil-search-highlight-persist nil)
-  (setq request-message-level -1)
   (setq-default indent-tabs-mode nil)
-  (setq default-tab-width 2)
-  ;; (setq c-default-style "google")
-  (setq c-basic-offset 2)
-  ;; (setq show-trailing-whitespace nil)
-  (setq spacemacs-show-trailing-whitespace nil)
-  ;; global company mode
-  (global-company-mode)
-  ;; global flycheck mode
-  (global-flycheck-mode)
-  ;; (require 'ycmd)
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-comile-options)
-  (add-hook 'python-mode-hook 'yapf-mode)
-  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-  ;; (require 'company-ycmd)
-  ;; (company-ycmd-setup)
-  (setq company-idle-delay 0.2)
   (spacemacs/set-leader-keys "gh" "^")
   (spacemacs/set-leader-keys "gl" "$")
-  (add-to-list 'auto-mode-alist '("\\.launch\\'" . xml-mode))
-
-  ;; Bind clang-format-region to C-M-tab in all modes:
-  ;; (global-set-key [C-tab] 'clang-format-region)
-  (spacemacs/set-leader-keys "cr" 'clang-format-region)
-  ;; Bind clang-format-buffer to tab on the c++-mode only:
-  (add-hook 'c++-mode-hook 'clang-format-bindings)
-  (defun clang-format-bindings ()
-    (spacemacs/set-leader-keys "cf" 'clang-format-buffer) 
-    ;; (define-key c++-mode-map (spacemacs/set-leader-keys "cf") 'clang-format-buffer)
-    ;; (define-key c++-mode-map [tab] 'clang-format-buffer)
-  )
+  (setq-default evil-escape-delay 0.3)
+  ;;单独设置中文字体，解决有中文是卡顿现象
+  (dolist (charset '(kana han cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family "微软雅黑" :size 16)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -405,11 +376,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(package-selected-packages
    (quote
-    (xterm-color shell-pop multi-term flyspell-correct-helm flyspell-correct eshell-z eshell-prompt-extras esh-help auto-dictionary tagedit slim-mode sass-mode less-css-mode helm-css-scss web-mode scss-mode pug-mode org-mime ghub emmet-mode company-web haml-mode company-irony irony yaml-mode imenu-list helm-gtags ggtags company-quickhelp web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode disaster company-c-headers cmake-mode clang-format flycheck-ycmd company-ycmd ycmd request-deferred let-alist deferred org-category-capture org-pomodoro markdown-toc flycheck-pos-tip pos-tip org-projectile org-present alert log4e gntp org-download mmm-mode markdown-mode htmlize gnuplot git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck diff-hl yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic vimrc-mode dactyl-mode unfill smeargle orgit mwim magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete csv-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor company-ycmd ycmd request-deferred let-alist deferred helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -426,11 +395,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(package-selected-packages
    (quote
-    (pangu-spacing find-by-pinyin-dired fcitx chinese-wbim chinese-conv ace-pinyin pinyinlib xterm-color shell-pop multi-term flyspell-correct-helm flyspell-correct eshell-z eshell-prompt-extras esh-help auto-dictionary tagedit slim-mode sass-mode less-css-mode helm-css-scss web-mode scss-mode pug-mode org-mime ghub emmet-mode company-web haml-mode company-irony irony yaml-mode imenu-list helm-gtags ggtags company-quickhelp web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode disaster company-c-headers cmake-mode clang-format flycheck-ycmd company-ycmd ycmd request-deferred let-alist deferred org-category-capture org-pomodoro markdown-toc flycheck-pos-tip pos-tip org-projectile org-present alert log4e gntp org-download mmm-mode markdown-mode htmlize gnuplot git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck diff-hl yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic vimrc-mode dactyl-mode unfill smeargle orgit mwim magit-gitflow helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy evil-magit magit magit-popup git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete csv-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (rainbow-mode rainbow-identifiers color-identifiers-mode org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor company-ycmd ycmd request-deferred let-alist deferred helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

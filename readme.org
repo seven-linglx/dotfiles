@@ -19,7 +19,7 @@
   - oh-my-zsh 包含ZSH配置文件.zshrc，和用户文件夹custom，里面有插件，主题
   - .clang-format C/C++代码格式模板文件
   - .globalrc CTags的设置文件
-  - .spacemacs Spacemacs的配置文件
+  - .spacemacs.d Spacemacs的私人配置文件目录，init.el就是.spacemacs文件，在此目录下可增加自定义包layers目录和snippets目录，以及其它相关文件
   - .tigrc tig的配置文件
   - .tmux.conf tmux的自定义配置文件
   - Preferences.sublime-settings Sublime Text用户配置文件
