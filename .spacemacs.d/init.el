@@ -36,20 +36,33 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     ;; yaml
+     ;; octave
+     ;; irony
+     html
+     ;; javascript
+     (python :variables
+             python-enable-yapf-format-on-save t)
+     vimscript
+     csv
      (helm :variables helm-enable-auto-resize t)
+     ;; ycmd
      ;; helm-ls-git
-     ;; counsel-git
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-help-tooltip t
+                      :disabled-for
+                      org
+                      markdown)
      better-defaults
      python
      emacs-lisp
      imenu-list
      git
-     (ivy :variable
-          ivy-wrap t)
-     ;; ycmd
+     (ivy :variable ivy-wrap t)
      ;; markdown
      (org :variable
           org-enable-github-support t)
@@ -62,6 +75,12 @@ values."
             c-c++-enable-c++11 t
             ;; c-c++-enable-auto-newline t
             clang-format-style "file")
+     (cmake :variables
+            cmake-enable-cmake-ide-support nil)
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
      (gtags :variable
             gtags-enable-by-default t)
      (cmake :variables
@@ -71,7 +90,10 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     ;; version-control
+     version-control
+     ;;(chinese :variables
+     ;;         chinese-enable-fcitx t
+     ;;         chinese-default-input-method 'wubi)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -348,13 +370,31 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq c-default-style "linux")
+  ;;打开文件和目录的设置
   (setq projectile-enable-caching t)
   (setq inhibit-compacting-font-caches t) ;; for doom-modeline
-  (spacemacs/set-leader-keys "pf" 'counsel-projectile-find-file)
-  ;; (spacemacs/set-leader-keys "pf" 'counsel-git)
+  ;; (spacemacs/set-leader-keys "pf" 'counsel-projectile-find-file)
+  (spacemacs/set-leader-keys "pf" 'counsel-git)
   (setq projectile-require-project-root t)
   (setq projectile-completion-system 'ivy)
   (setq projectile-indexing-method 'native)
+  ;;ycmd配置
+  ;; (require 'ycmd)
+  ;; (require 'company-ycmd)
+  ;; (company-ycmd-setup)
+  ;; (setq ycmd-server-command '("python" "/home/linglx/.vim.self/plugged/YouCompleteMe/third_party/ycmd/ycmd"))
+  ;; (setq ycmd-global-config "/home/linglx/.ycm_extra_conf.py")
+  ;; (setq ycmd-force-semantic-completion t)
+  ;; (setq ycmd-auto-trigger-semantic-completion t)
+  ;; 编程相关
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-comile-options)
+  (add-hook 'python-mode-hook 'yapf-mode)
+  ;; global company mode
+  (global-company-mode)
+  ;; global flycheck mode
+  (global-flycheck-mode)
+  ;;配置按键
   (setq-default evil-escape-key-sequence "jk")
   (define-key evil-normal-state-map (kbd "K") (kbd "%"))
   (define-key evil-normal-state-map (kbd "C-]") 'helm-gtags-find-tag)
@@ -363,10 +403,35 @@ you should place your code here."
   (spacemacs/set-leader-keys "gh" "^")
   (spacemacs/set-leader-keys "gl" "$")
   (setq-default evil-escape-delay 0.3)
+  ;;其它设置
+  (setq url-show-status nil)
+  (setq global-evil-search-highlight-persist nil)
+  (setq request-message-level -1)
+  (setq-default indent-tabs-mode nil)
+  (setq default-tab-width 2)
+  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+  ;; (setq show-trailing-whitespace nil)
+  (setq spacemacs-show-trailing-whitespace nil)
+  (add-to-list 'auto-mode-alist '("\\.launch\\'" . xml-mode))
+  (setq nyan-minimum-window-width 112)
+  ;;添加环境变量
+  (add-to-list 'exec-path "C:/Program Files/Git/bin")
+  (add-to-list 'exec-path "E:/cygwin64/bin")
+  (setenv "PATH" (mapconcat #'identity exec-path path-separator))
   ;;单独设置中文字体，解决有中文是卡顿现象
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family "微软雅黑" :size 16)))
+  ;; 配置clang-format Bind clang-format-region to C-M-tab in all modes:
+  ;; (global-set-key [C-tab] 'clang-format-region)
+  (spacemacs/set-leader-keys "cr" 'clang-format-region)
+  ;; Bind clang-format-buffer to tab on the c++-mode only:
+  (add-hook 'c++-mode-hook 'clang-format-bindings)
+  (defun clang-format-bindings ()
+    (spacemacs/set-leader-keys "cf" 'clang-format-buffer) 
+    ;; (define-key c++-mode-map (spacemacs/set-leader-keys "cf") 'clang-format-buffer)
+    ;; (define-key c++-mode-map [tab] 'clang-format-buffer)
+  )
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
