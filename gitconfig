@@ -1,0 +1,35 @@
+[user]
+	email = linglx@foxmail.com
+	name = seven-linglx
+[push]
+	default = matching
+[core]
+	trustctime = false
+	editor = E:/cygwin64/bin/vim.exe
+	filemode = false
+	autocrlf = input
+	safecrlf = true
+[color]
+	ui = true
+[credential]
+	helper = manager
+[merge]
+	tool = vimdiff
+[mergetool]
+	keeptemporaries = false
+	keepbackups = false
+	prompt = false
+	trustexitcode = false
+[alias]
+	last = log -1 --stat
+	cp = cherry-pick
+	co = checkout
+	cl = clone
+	ci = commit
+	st = status -sb
+	br = branch
+	unstage = reset HEAD --
+	dc = diff --cached
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+[http]
+	postBuffer = 524288000

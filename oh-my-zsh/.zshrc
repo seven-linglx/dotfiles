@@ -4,7 +4,7 @@ export EDITOR='vim'
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 # anaconda
-export PATH=C:/ProgramData/Anaconda3:$PATH
+export PATH=/cygdrive/c/ProgramData/Anaconda3:$PATH
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Set name of the theme to load.

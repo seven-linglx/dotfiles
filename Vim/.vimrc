@@ -1,13 +1,18 @@
 " ru! defaults.vim
 " let g:skip_defaults_vim = 1
 set clipboard+=unnamed
-set foldenable
 set nu "开启行号
 set relativenumber "设置为相对行号
 set nocompatible "关闭vi兼容模式
 set cursorline "突出显示当前行
 set noerrorbells "关闭错误信息响铃
 set smartindent "开启新行时使用智能自动缩进
+
+set foldenable
+set foldmethod=manual "设置折叠方式
+
+set guifont=Source_Code_Pro_for_Powerline:h12
+
 set encoding=utf-8
 set smartcase "智能判断搜索时是否大小写敏感，当搜索词中有大写时，则大小写敏感
 syntax on
@@ -21,6 +26,10 @@ inoremap <C-l> <Right>
 " imap <C-a> <Home>
 " imap <C-e> <End>
 " imap <C-d> <Delete>
+
+" 切换buffer
+nnoremap [p :bprevious<CR>
+nnoremap [n :bnext<CR>
 
 " Normal mode shortcut
 nnoremap <space>fs :w<CR>
@@ -38,10 +47,26 @@ let mapleader=","
 
 " plugin
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree' ", {'on': 'NERDTreeToggle'}
+Plug 'mhinz/vim-startify'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " The NERD Commenter
 " 注释符号后面加一个空格
 let g:NERDSpaceDelims=1
 nmap <space>cl <plug>NERDCommenterToggle
+
+" nerdtree
+nmap ,t :NERDTreeToggle<CR>
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+" startify
+let g:startify_change_to_dir=0
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='molokai'
+let g:airline#extensions#tabline#enabled = 1 "显示窗口tab和buffer

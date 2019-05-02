@@ -1,0 +1,11 @@
+Font=DejaVu Sans Mono Nerd Font Complete Windows Compatible
+FontHeight=10
+Columns=132
+Rows=66
+Term=xterm-256color
+FontSmoothing=default
+AllowBlinking=yes
+Locale=C
+Charset=UTF-8
+BoldAsFont=-1
+CursorType=block
