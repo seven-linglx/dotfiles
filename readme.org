@@ -23,3 +23,5 @@
   - .tigrc tig的配置文件
   - .tmux.conf tmux的自定义配置文件
   - Preferences.sublime-settings Sublime Text用户配置文件
+  - .minttyrc windows上使用mintty的配置文件
+  - gitconfig git一些全局配置，使用时改名为.gitconfig
