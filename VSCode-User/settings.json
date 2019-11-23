@@ -3,16 +3,36 @@
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
-    "vim.leader": "<space>",
+    "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
-            "before": ["j","k"],
-            "after": ["<Esc>"]
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "cursorLeft",
+                }
+            ]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["<leader>","f","s"],
+            "before": [
+                "<leader>",
+                "f",
+                "s"
+            ],
             "after": [],
             "commands": [
                 {
@@ -22,7 +42,11 @@
             ]
         },
         {
-            "before": ["<leader>","c","l"],
+            "before": [
+                "<leader>",
+                "c",
+                "l"
+            ],
             "after": [],
             "commands": [
                 {
@@ -32,7 +56,23 @@
             ]
         },
         {
-            "before": ["t","c"],
+            "before": [
+                "<leader>",
+                "w",
+                "c"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closePanel",
+                }
+            ]
+        },
+        {
+            "before": [
+                "t",
+                "c"
+            ],
             "after": [],
             "commands": [
                 {
@@ -42,32 +82,60 @@
             ]
         },
         {
-            "before":["t","n"],
-            "after": ["g","t"],
+            "before": [
+                "t",
+                "n"
+            ],
+            "after": [
+                "g",
+                "t"
+            ],
         },
         {
-            "before":["t","p"],
-            "after": ["g","T"],
+            "before": [
+                "t",
+                "p"
+            ],
+            "after": [
+                "g",
+                "T"
+            ],
         },
         {
-            "before": ["<leader>","g","h"],
-            "after": ["^"]
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "after": [
+                "^"
+            ]
         },
         {
-            "before": ["<leader>","g","l"],
-            "after": ["$"]
+            "before": [
+                "<leader>",
+                "l"
+            ],
+            "after": [
+                "$"
+            ]
         },
         {
-            "before":["K"],
-            "after":["%"]
+            "before": [
+                "K"
+            ],
+            "after": [
+                "%"
+            ]
         },
         {
-            "before":["<C-n>"],
-            "after":[],
+            "before": [
+                "<C-n>"
+            ],
+            "after": [],
             "commands": [
                 {
                     "command": ":nohl",
-                    "args":[]
+                    "args": []
                 }
             ]
         }
@@ -76,18 +144,20 @@
         "<C-a>": false,
         "<C-f>": false
     },
+    "vim.useCtrlKeys": true,
     "editor.fontSize": 16,
-    "workbench.colorTheme": "One Dark Pro Vivid",
-    "editor.lineHeight": 22,
-    "C_Cpp.clang_format_path": "/usr/bin/clang-format-5.0",
+    "editor.lineHeight": 23,
+    // "C_Cpp.clang_format_path": "/usr/bin/clang-format-5.0",
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "workbench.activityBar.visible": false,
-    "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
     "python.linting.pylintArgs": [
         "--disable-msg=E1129"
     ],
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E501, E262",
+    ],
     "explorer.confirmDragAndDrop": false,
-    "todohighlight.isEnable": true,
     "explorer.confirmDelete": false,
     "window.zoomLevel": 0,
     "editor.minimap.enabled": false,
@@ -95,18 +165,34 @@
     "update.channel": "none",
     "window.menuBarVisibility": "default",
     "editor.lineNumbers": "relative",
-    "editor.fontFamily": "'Source Code Pro for Powerline', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120,
     "workbench.editor.enablePreview": false,
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "search.location": "panel",
     "vim.textwidth": 120,
-    "editor.detectIndentation": false,
     "workbench.startupEditor": "newUntitledFile",
     "C_Cpp.errorSquiggles": "Enabled",
     "workbench.editor.openSideBySideDirection": "right",
     "editor.folding": true,
     "editor.glyphMargin": true,
-    "cmake.configureOnOpen": false,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.external.windowsExec": "E:/cygwin64/bin/mintty.exe",
+    "terminal.integrated.rightClickBehavior": "selectWord",
+    "workbench.iconTheme": "vscode-icons",
+    "terminal.integrated.rendererType": "dom",
+    "vim.foldfix": true,
+    "editor.showFoldingControls": "always",
+    "workbench.colorTheme": "Monokai Dimmed",
+    "C_Cpp.updateChannel": "Insiders",
+    "files.associations": {
+        "*.txt": "cpp"
+    },
+    "editor.formatOnPaste": true,
+    "python.formatting.provider": "yapf",
+    "vsicons.dontShowNewVersionMessage": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.renderControlCharacters": false,
+    "editor.formatOnSave": true,
 }

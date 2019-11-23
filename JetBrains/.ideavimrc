@@ -50,6 +50,7 @@ nnoremap <Leader>h ^
 " Move to the end of line
 nnoremap <Leader>l $
 
+noremap \ ,
 nnoremap K %
 " Redo
 nnoremap U <C-r>

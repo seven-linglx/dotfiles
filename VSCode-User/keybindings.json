@@ -1,19 +1,28 @@
 // 将键绑定放入此文件中以覆盖默认值
 [
-    { "key": "ctrl+j","command": "cursorDown","when": "editorTextFocus" },
+    {
+        "key": "ctrl+j",
+        "command": "cursorDown",
+        "when": "editorTextFocus"
+    },
     {
         "key": "ctrl+k",
         "command": "cursorUp",
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+d",
-        "command": "extension.vim_ctrl+d",
-        "when": "editorTextFocus && vim.active && !inDebugRepl"
+        "key": "ctrl+h",
+        "command": "cursorLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "cursorRight",
+        "when": "textInputFocus"
     },
     {
         "key": "ctrl+d",
-        "command": "-extension.vim_ctrl+d",
+        "command": "extension.vim_ctrl+d",
         "when": "editorTextFocus && vim.active && !inDebugRepl"
     },
     {
@@ -39,10 +48,6 @@
         "key": "ctrl+o",
         "command": "-extension.vim_ctrl+o",
         "when": "editorTextFocus && vim.active && vim.use<C-o> && !inDebugRepl"
-    },
-    {
-        "key": "capslock ctrl+m",
-        "command": "editor.action.toggleMinimap"
     },
     {
         "key": "ctrl+w",
@@ -123,5 +128,56 @@
             }
           ]
         }
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "editor.action.formatDocument"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "down",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "down",
+        "command": "list.focusDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "down",
+        "command": "workbench.action.interactivePlayground.arrowDown",
+        "when": "interactivePlaygroundFocus && !editorTextFocus"
+    },
+    {
+        "key": "down",
+        "command": "showNextParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "python.execInTerminal"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "-extension.vim_ctrl+h",
+        "when": "editorTextFocus && vim.active && vim.use<C-h> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "-editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+        "when": "inQuickOpen && inRecentFilesPicker"
     },
 ]

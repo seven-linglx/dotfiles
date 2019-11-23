@@ -36,34 +36,24 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; yaml
-     ;; octave
-     ;; irony
-     html
-     ;; javascript
-     (python :variables
-             python-enable-yapf-format-on-save t)
-     vimscript
-     csv
+     ;; html
      (helm :variables helm-enable-auto-resize t)
-     ;; ycmd
      ;; helm-ls-git
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
-     (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup t
-                      auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-help-tooltip t
-                      :disabled-for
-                      org
-                      markdown)
+     auto-completion
      better-defaults
-     python
+     (python :variables
+             python-indent-offset 4)
      emacs-lisp
      imenu-list
      git
-     (ivy :variable ivy-wrap t)
-     ;; markdown
+     ;; multiple-cursors
+     ;; treemacs
+     (ivy :variables ivy-wrap t)
+     ;; smex
+     ;; ycmd
+     markdown
      (org :variable
           org-enable-github-support t)
      (c-c++ :variables
@@ -75,12 +65,6 @@ values."
             c-c++-enable-c++11 t
             ;; c-c++-enable-auto-newline t
             clang-format-style "file")
-     (cmake :variables
-            cmake-enable-cmake-ide-support nil)
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
      (gtags :variable
             gtags-enable-by-default t)
      (cmake :variables
@@ -89,11 +73,10 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
+     ;; chinese
+     linglx
      syntax-checking
-     version-control
-     ;;(chinese :variables
-     ;;         chinese-enable-fcitx t
-     ;;         chinese-default-input-method 'wubi)
+     ;; version-control
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -188,7 +171,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 15
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -216,7 +199,7 @@ values."
    ;; works in the GUI. (default nil)
    dotspacemacs-distinguish-gui-tab nil
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
-   dotspacemacs-remap-Y-to-y$ nil
+   dotspacemacs-remap-Y-to-y$ t
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
    ;; there. (default t)
    dotspacemacs-retain-visual-state-on-shift t
@@ -335,7 +318,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("rg" "pt" "ag" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -345,7 +328,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -355,9 +338,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq configuration-layer--elpa-archives
-    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") 
-      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/") 
+  (setq configuration-layer-elpa-archives
+    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+      ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
       ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
     )
 )
@@ -369,75 +352,60 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq c-default-style "linux")
+  (setq c-default-style "k&r")
   ;;打开文件和目录的设置
   (setq projectile-enable-caching t)
   (setq inhibit-compacting-font-caches t) ;; for doom-modeline
   ;; (spacemacs/set-leader-keys "pf" 'counsel-projectile-find-file)
-  (spacemacs/set-leader-keys "pf" 'counsel-git)
+  ;; (spacemacs/set-leader-keys "pf" 'counsel-git)
   (spacemacs/set-leader-keys "pf" 'linglx/open-file-with-projectile-or-counsel-git)
   (setq projectile-require-project-root t)
   (setq projectile-completion-system 'ivy)
   (setq projectile-indexing-method 'native)
   (setq ivy-initial-inputs-alist nil)
-  ;;ycmd配置
-  ;; (require 'ycmd)
-  ;; (require 'company-ycmd)
-  ;; (company-ycmd-setup)
-  ;; (setq ycmd-server-command '("python" "/home/linglx/.vim.self/plugged/YouCompleteMe/third_party/ycmd/ycmd"))
-  ;; (setq ycmd-global-config "/home/linglx/.ycm_extra_conf.py")
-  ;; (setq ycmd-force-semantic-completion t)
-  ;; (setq ycmd-auto-trigger-semantic-completion t)
-  ;; 编程相关
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-comile-options)
-  (add-hook 'python-mode-hook 'yapf-mode)
-  ;; global company mode
-  (global-company-mode)
-  ;; global flycheck mode
-  (global-flycheck-mode)
-  ;;配置按键
+  ;;自定义按键
   (setq-default evil-escape-key-sequence "jk")
   (define-key evil-normal-state-map (kbd "K") (kbd "%"))
   (global-set-key (kbd "M-x") 'smex)
-  (define-key evil-normal-state-map (kbd "C-]") 'helm-gtags-find-tag)
-  (define-key evil-normal-state-map (kbd "C-[")   'evil-jump-backward)
+  ;; (define-key evil-normal-state-map (kbd "C-]") 'helm-gtags-find-tag)
+  ;; (define-key evil-normal-state-map (kbd "C-[")   'evil-jump-backward)
   (define-key evil-insert-state-map (kbd "C-h") (kbd "<left>"))
   (define-key evil-insert-state-map (kbd "C-j") (kbd "<down>"))
   (define-key evil-insert-state-map (kbd "C-k") (kbd "<up>"))
   (define-key evil-insert-state-map (kbd "C-l") (kbd "<right>"))
-  (spacemacs/set-leader-keys "gh" "^")
-  (spacemacs/set-leader-keys "gl" "$")
+  ;; (spacemacs/set-leader-keys "gh" "^")
+  ;; (spacemacs/set-leader-keys "gl" "$")
   ;;其它设置
-  (setq url-show-status nil)
-  (setq global-evil-search-highlight-persist nil)
-  (setq request-message-level -1)
+  (setq nyan-minimum-window-width 112)
+  (setq fill-column 100) ;;设置auto-fill-mode自动换行的长度
+  ;; (global-centered-cursor-mode 1) ;; 光标位于中心行
+  (setq vc-handled-backends nil)
   (setq-default indent-tabs-mode nil)
-  (setq default-tab-width 2)
   (setq-default evil-escape-delay 0.3)
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-  ;; (setq show-trailing-whitespace nil)
-  (setq spacemacs-show-trailing-whitespace nil)
-  (add-to-list 'auto-mode-alist '("\\.launch\\'" . xml-mode))
-  (setq nyan-minimum-window-width 112)
   ;;添加环境变量
   (add-to-list 'exec-path "C:/Program Files/Git/bin")
   (add-to-list 'exec-path "E:/cygwin64/bin")
   (setenv "PATH" (mapconcat #'identity exec-path path-separator))
+  ;;解决org表格里面中英文对齐的问题
+  ;; (setq org-bullets-bullet-list '(":whale:" ":tropical_fish:" ":dolphin:" ":fish:"))
+  ;;Hiragino Sans GB
+  ;; (when (configuration-layer/layer-usedp 'chinese)
+    ;; (when (and (spacemacs/system-is-mac) window-system)
+      ;; (spacemacs//set-monospaced-font "Source Code Pro" "HiraginoSansGB-W3-Alphabetic" 14 16)))
+  ;;单独设置编码
+  (when (eq system-type 'windows-nt)
+    (set-default 'process-coding-system-alist
+                 '(("[pP][lL][iI][nN][kK]" gbk-dos . gbk-dos)
+                   ("[cC][mM][dD][pP][rR][oO][xX][yY]" gbk-dos . gbk-dos)
+                   ("[aA][gG]" utf-8-dos . gbk-dos)
+                   ("[rR][gG]" utf-8-dos . gbk-dos)
+                   ("[gG][iI][tT]" utf-8-dos . gbk-dos))))
   ;;单独设置中文字体，解决有中文是卡顿现象
+  (setq line-spacing 0.15)
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family "微软雅黑" :size 16)))
-  ;; 配置clang-format Bind clang-format-region to C-M-tab in all modes:
-  ;; (global-set-key [C-tab] 'clang-format-region)
-  (spacemacs/set-leader-keys "cr" 'clang-format-region)
-  ;; Bind clang-format-buffer to tab on the c++-mode only:
-  (add-hook 'c++-mode-hook 'clang-format-bindings)
-  (defun clang-format-bindings ()
-    (spacemacs/set-leader-keys "cf" 'clang-format-buffer) 
-    ;; (define-key c++-mode-map (spacemacs/set-leader-keys "cf") 'clang-format-buffer)
-    ;; (define-key c++-mode-map [tab] 'clang-format-buffer)
-  )
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -466,13 +434,19 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("ab2cbf30ab758c5e936b527377d543ce4927001742f79519b62c45ba9dd9f55e" default)))
+ '(evil-want-Y-yank-to-eol t)
  '(package-selected-packages
    (quote
-    (rainbow-mode rainbow-identifiers color-identifiers-mode org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor company-ycmd ycmd request-deferred let-alist deferred helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (tagedit slim-mode scss-mode sass-mode pug-mode prettier-js less-css-mode impatient-mode simple-httpd helm-core haml-mode emmet-mode counsel-css web-completion-data add-node-modules-path org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot smeargle orgit magit-gitflow helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor company-ycmd ycmd request-deferred let-alist deferred helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(font-lock-function-name-face ((t (:inherit nil :foreground "#bc6ec5"))))
+ '(font-lock-keyword-face ((t (:inherit nil :foreground "#4f97d7" :slant normal))))
+ '(font-lock-type-face ((t (:inherit nil :foreground "#ce537a")))))
 )
