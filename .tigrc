@@ -1,3 +1,6 @@
+# color https://github.com/jonas/tig/tree/master/contrib 导入其实颜色主题
+source ~/.tig/chocolate.theme.tigrc
+
 # vim-like keybinding
 bind generic g  none
 bind generic gg move-first-line
