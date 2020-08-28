@@ -1,28 +1,33 @@
-let mapleader=' '
+let mapleader=','
+nnoremap \ ,
 
-set nohlsearch
+" set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
 set showmode
 set number
 set relativenumber
-set scrolloff=3
+set scrolloff=2
 set history=100000
 set clipboard=unnamed
+set surround
+set multiple-cursors
+set backspace=indent,eol,start
+set nocompatible
 
 " clear the highlighted search result
-nnoremap <Leader>sc :nohlsearch<CR>
+nnoremap <Space>sc :nohlsearch<CR>
 
-nnoremap <Leader>fs :w<CR>
+nnoremap <Space>fs :w<CR>
 
 " Quit normal mode
-nnoremap <Leader>q  :q<CR>
-nnoremap <Leader>Q  :qa!<CR>
+nnoremap <Space>q  :q<CR>
+nnoremap <Space>Q  :qa!<CR>
 
 " Move half page faster
-nnoremap <Leader>d  <C-d>
-nnoremap <Leader>u  <C-u>
+nnoremap <Space>d  <C-d>
+nnoremap <Space>u  <C-u>
 
 " Insert mode shortcut
 inoremap <C-h> <Left>
@@ -40,10 +45,10 @@ inoremap jk <Esc>
 vnoremap v <Esc>
 
 " Move to the start of line
-nnoremap <Leader>gh ^
+nnoremap <Leader>h ^
 
 " Move to the end of line
-nnoremap <Leader>gl $
+nnoremap <Leader>l $
 
 nnoremap K %
 " Redo
@@ -53,16 +58,16 @@ nnoremap U <C-r>
 nnoremap Y y$
 
 " Window operation
-nnoremap <Leader>ww <C-W>w
-nnoremap <Leader>wd <C-W>c
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
-nnoremap <Leader>ws <C-W>s
-nnoremap <Leader>w- <C-W>s
-nnoremap <Leader>wv <C-W>v
-nnoremap <Leader>w\| <C-W>v
+nnoremap <Space>ww <C-W>w
+nnoremap <Space>wd <C-W>c
+nnoremap <Space>wj <C-W>j
+nnoremap <Space>wk <C-W>k
+nnoremap <Space>wh <C-W>h
+nnoremap <Space>wl <C-W>l
+nnoremap <Space>ws <C-W>s
+nnoremap <Space>w- <C-W>s
+nnoremap <Space>wv <C-W>v
+nnoremap <Space>w\| <C-W>v
 
 " Tab operation
 nnoremap tn gt
@@ -76,43 +81,49 @@ nnoremap tc :close<CR>
 " built in search looks better
 " nnoremap / :action Find<CR>
 " but preserve ideavim search
-nnoremap <Leader>/ /
+nnoremap <Space>/ /
 
-nnoremap <Leader>cl :action CommentByLineComment<CR>
+nnoremap <Space>cl :action CommentByLineComment<CR>
 
-nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
-nnoremap <Leader>br :action ViewBreakpoints<CR>
+nnoremap <Space>bb :action ToggleLineBreakpoint<CR>
+nnoremap <Space>br :action ViewBreakpoints<CR>
 
-nnoremap <Leader>cv :action ChangeView<CR>
+nnoremap <Space>cv :action ChangeView<CR>
 
-nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
+nnoremap <Space>cd :action ChooseDebugConfiguration<CR>
 
-nnoremap <Leader>ga :action GotoAction<CR>
-nnoremap <Leader>gc :action GotoClass<CR>
-nnoremap <Leader>gd :action GotoDeclaration<CR>
-nnoremap <Leader>gf :action GotoFile<CR>
-nnoremap <Leader>gi :action GotoImplementation<CR>
-nnoremap <Leader>gs :action GotoSymbol<CR>
-nnoremap <Leader>gt :action GotoTest<CR>
+nnoremap ga :action GotoAction<CR>
+nnoremap gc :action GotoClass<CR>
+" nnoremap <Space>gd :action GotoDeclaration<CR>
+nnoremap gf :action Forward<CR>
+nnoremap gb :action Back<CR>
+nnoremap <Space>gi :action GotoImplementation<CR>
+nnoremap gs :action GotoSymbol<CR>
+nnoremap <Space>gt :action GotoTest<CR>
 
-nnoremap <Leader>fp :action ShowFilePath<CR>
-nnoremap <Leader>fu :action FindUsages<CR>
+nnoremap <Space>fp :action ShowFilePath<CR>
+nnoremap <Space>fu :action FindUsages<CR>
 
-nnoremap <Leader>ic :action InspectCode<CR>
+nnoremap <Space>ic :action InspectCode<CR>
 
-nnoremap <Leader>sl :action ActivateStructureToolWindow<CR>
+nnoremap <Space>sl :action ActivateStructureToolWindow<CR>
 
-nnoremap <Leader>oi :action OptimizeImports<CR>
+nnoremap <Space>oi :action OptimizeImports<CR>
 
-nnoremap <Leader>pm :action ShowPopupMenu<CR>
+nnoremap <Space>pm :action ShowPopupMenu<CR>
 
-nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
-nnoremap <Leader>re :action RenameElement<CR>
-nnoremap <Leader>rf :action RenameFile<CR>
+nnoremap <Space>rc :action ChooseRunConfiguration<CR>
+nnoremap <Space>re :action RenameElement<CR>
+nnoremap <Space>rf :action RenameFile<CR>
 
-nnoremap <Leader>se :action SearchEverywhere<CR>
-nnoremap <Leader>su :action ShowUsages<CR>
+nnoremap <Space>se :action SearchEverywhere<CR>
+nnoremap <Space>su :action ShowUsages<CR>
 
-nnoremap <Leader>tc  :action CloseActiveTab<CR>
-nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
-vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+nnoremap <Space>tc  :action CloseActiveTab<CR>
+nnoremap <Space>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
+vnoremap <Space>tl y<CR>:action ActivateTerminalToolWindow<CR>
+
+set clipboard+=ideaputset
+set clipboard+=ideajoin
+set clipboard+=ideaput
+set ideajoin
