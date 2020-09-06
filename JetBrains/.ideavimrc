@@ -100,6 +100,11 @@ nnoremap gb :action Back<CR>
 nnoremap <Space>gi :action GotoImplementation<CR>
 nnoremap gs :action GotoSymbol<CR>
 nnoremap <Space>gt :action GotoTest<CR>
+" 显示文档
+nnoremap gh :action QuickJavaDoc<CR>
+" 上一个方法，下一个方法
+nnoremap <Space>gj :action MethodDown<CR>
+nnoremap <Space>gk :action MethodUp<CR>
 
 nnoremap <Space>fp :action ShowFilePath<CR>
 nnoremap <Space>fu :action FindUsages<CR>
