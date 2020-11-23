@@ -48,11 +48,12 @@
   ;; Resolve pylint cannot find relative PYTHONPATH issue
   (add-hook! python-mode (setenv "PYTHONPATH" (doom-project-root)))
 
-  (add-hook! python-mode (setq-default flycheck-checker "python-flake8"))
+  ;; (add-hook! python-mode (setq-default flycheck-checker "python-flake8"))
 
   ;; lsp-pyls-plugins-pylint-args [ "--errors-only" ]
   (if (featurep! :tools lsp)
-      (setq lsp-pyls-plugins-pycodestyle-ignore '("E501"))))
+      (setq lsp-pyls-plugins-pycodestyle-ignore '("E501")
+            lsp-pyls-plugins-pylint-args ["--errors-only"])))
 
 (after! lsp-python-ms
   (setq lsp-python-ms-python-executable-cmd "python3"))

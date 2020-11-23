@@ -105,7 +105,7 @@
        ;;agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
        (cc                ; C/C++/Obj-C madness
-        +lsp
+        ;;+lsp
         )
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
@@ -146,7 +146,8 @@
        (python            ; beautiful is better than ugly
         +pyenv
         +conda
-        +lsp)
+        ;;+lsp
+		)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client

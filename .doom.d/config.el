@@ -6,8 +6,13 @@
 ;; Place your private configuration here
 (setq-default fill-column 100
               delete-trailing-lines t)
+(setq-default evil-escape-delay 0.4)
+(setq doom-font (font-spec :family "Source Code Pro" :size 15 :weight 'normal))
 (setq display-line-numbers-type 'relative)
+(setq shell-file-name (executable-find "zsh.exe"))
+(setenv "PATH" "E:/cygwin64/bin")
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
-(add-to-list 'exec-path "/home/linglx/anaconda3/bin")
+(add-to-list 'exec-path "/cygdrive/c/ProgramData/Anaconda3")
+(add-to-list 'exec-path "C:/ProgramData/Anaconda3")
 
 (setq lsp-ui-flycheck-enable nil)
