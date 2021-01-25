@@ -11,3 +11,5 @@
                    ;; pyimport)
 (package! flycheck-mypy)
 (package! lsp-python-ms)
+;; org标题美化
+(package! org-superstar)
