@@ -16,3 +16,11 @@
 (add-to-list 'exec-path "C:/ProgramData/Anaconda3")
 
 (setq lsp-ui-flycheck-enable nil)
+
+; org
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+(add-hook 'org-mode-hook (lambda () (org-content 1)))
+
+(after! org-superstar
+  (setq org-superstar-headline-bullets-list '("◉" "○" "✸" "✿" "✤" "✜" "◆" "▶")
+        org-superstar-prettify-item-bullets t ))
