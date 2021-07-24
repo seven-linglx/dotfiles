@@ -11,7 +11,7 @@
         ;; company-show-numbers t
         company-global-modes '(not comint-mode erc-mode message-mode help-mode gud-mode)))
 
-(def-package! company-lsp
+(use-package! company-lsp
   :after company
   :init
   ;; Language servers have better idea filtering and sorting,
