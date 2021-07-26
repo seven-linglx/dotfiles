@@ -44,16 +44,19 @@
   (setq python-indent-offset 4
         flycheck-python-pylint-executable "pylint"
         flycheck-python-flake8-executable "flake8")
-
-  ;; Resolve pylint cannot find relative PYTHONPATH issue
-  (add-hook! python-mode (setenv "PYTHONPATH" (doom-project-root)))
-
+        
   ;; (add-hook! python-mode (setq-default flycheck-checker "python-flake8"))
+  ;; Resolve pylint cannot find relative PYTHONPATH issue
+  (add-hook! python-mode (setenv "PYTHONPATH" (doom-project-root))))
 
+(after! lsp-pyls
   ;; lsp-pyls-plugins-pylint-args [ "--errors-only" ]
-  (if (featurep! :tools lsp)
-      (setq lsp-pyls-plugins-pycodestyle-ignore '("E501")
-            lsp-pyls-plugins-pylint-args ["--errors-only"])))
+  ;; lsp-pyls-configuration-sources ["pycodestyle"]
+  ;; lsp-pyls-plugins-pylint-enabled nil ;; disable to ensure performance
+  (setq lsp-pyls-plugins-pycodestyle-ignore '("E501" "E111")
+        lsp-pyls-plugins-pycodestyle-max-line-length 120
+        lsp-pyls-plugins-pylint-enabled nil
+        lsp-pyls-plugins-pylint-args ["--errors-only"]))
 
 (after! lsp-python-ms
   (setq lsp-python-ms-python-executable-cmd "python3"))
