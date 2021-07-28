@@ -15,4 +15,6 @@
         :desc "Comment or Uncomment Region" "L" #'comment-or-uncomment-region
         :desc "Comment line" "l" #'comment-line)
       (:prefix "p"
-        :desc "Find file in current Git Repo" "f" #'counsel-git))
+        :desc "Find file in current Git Repo" "f" #'counsel-git)
+      (:prefix "s"
+        :desc "Disable the active search highlightings" "c" #'evil-ex-nohighlight))
