@@ -18,3 +18,5 @@
 
 ;; org-super-agenda将agenda分组
 (package! org-super-agenda)
+;; replace priority with icons
+(package! org-fancy-priorities)

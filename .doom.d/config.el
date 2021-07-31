@@ -24,8 +24,9 @@
 ;; theme
 (load-theme 'doom-solarized-light t)
 
-;; DejaVuSansMono NF
-(setq doom-font (font-spec :family "Source Code Pro for Powerline" :size 15 :weight 'normal))
+;; Source Code Pro for Powerline
+(setq doom-font (font-spec :family "DejaVuSansMono NF" :size 15 :weight 'normal))
+(setq line-spacing 0.3)
 (setq display-line-numbers-type 'relative)
 (setq shell-file-name (executable-find "zsh.exe"))
 (setenv "PATH" "E:/cygwin64/bin")
