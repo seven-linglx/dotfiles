@@ -8,6 +8,7 @@
   (setq org-directory (expand-file-name "E:\\temp\\gtd")
         org-agenda-files (directory-files-recursively org-directory "\\.org$")
         org-ellipsis " ▼ "
+        org-startup-indented t
         org-log-done 'time))
 
 ;; org capture
@@ -41,6 +42,10 @@
 
 ;; org-agenda
 (after! org-agenda
+  (setq org-agenda-log-mode-items '(clock closed state))
+  ;; 默认显示节假日
+  (setq org-agenda-include-diary t)
+
   ;; https://old.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/
   (setq org-agenda-category-icon-alist
         `(("work" ,(list (all-the-icons-material "work")) nil nil :ascent center)
