@@ -42,6 +42,8 @@
 
 ;; org-agenda
 (after! org-agenda
+  ;; https://emacs.christianbaeuerlein.com/my-org-config.html#org968d6c8
+  (setq org-super-agenda-header-separator "==============\n")  ;; 9472
   (setq org-agenda-log-mode-items '(clock closed state))
   ;; 默认显示节假日
   (setq org-agenda-include-diary t)
@@ -72,16 +74,17 @@
         org-agenda-compact-blocks t
         org-agenda-start-day "-1d"
         ;; (setq org-agenda-start-on-weekday 1)
+        org-super-agenda-header-map nil
         org-agenda-span 'week)
 
   (setq org-super-agenda-groups
-        '((:name "Today"
+        '((:name "📌 Today"
            :time-grid t
            :log t
            :deadline today)
-          (:name "Over Due"
+          (:name "⏰ Over Due"
            :deadline past)
-          (:name "Important"
+          (:name "⭐ Important"
            :priority "A"
            :order 1)
           (:name "Less Important"
