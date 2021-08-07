@@ -72,19 +72,19 @@
   (setq org-agenda-skip-scheduled-if-done nil
         org-agenda-skip-deadline-if-done nil
         org-agenda-compact-blocks t
-        org-agenda-start-day "-1d"
-        ;; (setq org-agenda-start-on-weekday 1)
+        ;; org-agenda-start-day "-1d"
+        ;; org-agenda-start-on-weekday 1
         org-super-agenda-header-map nil
         org-agenda-span 'week)
 
   (setq org-super-agenda-groups
-        '((:name "📌 Today"
+        '((:name " Today"
            :time-grid t
            :log t
            :deadline today)
-          (:name "⏰ Over Due"
+          (:name " Over Due"
            :deadline past)
-          (:name "⭐ Important"
+          (:name " Important"
            :priority "A"
            :order 1)
           (:name "Less Important"
@@ -107,5 +107,5 @@
   :after org-agenda
   :init
   (setq org-fancy-priorities-list '("☕" "⚓" "⚡" "☸"))
-  :hook
-  (org-mode . org-fancy-priorities-mode))
+  :config
+  (org-fancy-priorities-mode))
