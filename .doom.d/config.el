@@ -24,8 +24,11 @@
 ;; theme
 (load-theme 'doom-solarized-light t)
 
-;; Source Code Pro for Powerline
-(setq doom-font (font-spec :family "DejaVuSansMono NF" :size 15 :weight 'normal))
+;; all-the-icons
+(setq doom-font (font-spec :family "DejaVuSansMono NF" :size 15 :weight 'normal)
+      doom-variable-pitch-font (font-spec :family "Fira Mono for Powerline")
+      doom-unicode-font (font-spec :family "Source Code Pro for Powerline"))
+
 (setq line-spacing 0.3)
 (setq display-line-numbers-type 'relative)
 (setq shell-file-name (executable-find "zsh.exe"))
