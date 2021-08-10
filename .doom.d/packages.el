@@ -9,12 +9,16 @@
 ;; (disable-packages! anaconda-mode
                    ;; company-anaconda
                    ;; pyimport)
-(package! flycheck-mypy)
-(package! lsp-python-ms)
+;; (package! flycheck-mypy)
+;; (package! lsp-python-ms)
 (package! company-lsp)
+(package! indent-guide)
 
 ;; org标题美化
 (package! org-superstar)
+
+;; misc
+(package! all-the-icons-ibuffer)
 
 ;; org-super-agenda将agenda分组
 (package! org-super-agenda)
