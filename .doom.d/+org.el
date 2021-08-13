@@ -4,11 +4,18 @@
 (after! org
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-  (add-hook 'org-mode-hook (lambda () (org-content 1)))
+  (add-hook 'org-mode-hook (lambda () (org-content 0)))
+  (add-hook 'org-mode-hook (lambda () (prettify-symbols-mode 1)))
+  (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . ?✎)
+                                         ("#+END_SRC" . ?∷)
+                                         ("#+begin_src" . ?✎)
+                                         ("#+end_src" . ?∷)))
   (setq org-directory (expand-file-name "E:\\temp\\gtd")
         org-agenda-files (directory-files-recursively org-directory "\\.org$")
         org-ellipsis " ▼ "
         org-startup-indented t
+        org-startup-folded 'overview
+        org-image-actual-width 400
         org-log-done 'time))
 
 ;; org capture
@@ -98,7 +105,7 @@
 ;; org-suerstar
 ;; ("◉" "○" "✸" "✿" "✤" "✜" "◆" "▶" "☰" "☷" "☯" "☭")
 (after! org-superstar
-  (setq org-superstar-headline-bullets-list '("☰" "ൠ" "❤" "☯" "○" "◆")
+  (setq org-superstar-headline-bullets-list '("☰" "☷" "◉" "☯" "○" "◆")
         org-superstar-remove-leading-stars t
         org-superstar-prettify-item-bullets t))
 
@@ -106,6 +113,6 @@
 (use-package! org-fancy-priorities
   :after org-agenda
   :init
-  (setq org-fancy-priorities-list '("☕" "⚓" "⚡" "☸"))
+  (setq org-fancy-priorities-list '("⚡" "⚓" "☕" "☸"))
   :config
   (org-fancy-priorities-mode))
