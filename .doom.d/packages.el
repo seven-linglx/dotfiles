@@ -9,9 +9,8 @@
 ;; (disable-packages! anaconda-mode
                    ;; company-anaconda
                    ;; pyimport)
-;; (package! flycheck-mypy)
-;; (package! lsp-python-ms)
-(package! company-lsp)
+
+(package! lsp-python-ms)
 (package! indent-guide)
 
 ;; org标题美化

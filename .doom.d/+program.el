@@ -11,30 +11,17 @@
         ;; company-show-numbers t
         company-global-modes '(not comint-mode erc-mode message-mode help-mode gud-mode)))
 
-(use-package! company-lsp
-  :after company
-  :init
-  ;; Language servers have better idea filtering and sorting,
-  ;; don't filter results on the client side.
-  (setq company-transformers nil
-        company-lsp-cache-candidates nil)
-  (set-company-backend! 'lsp-mode 'company-lsp))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; FLYCHECK
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (after! flycheck
   (setq-default flycheck-disabled-checkers
-                '(
-                  javascript-jshint handlebars
+                '(javascript-jshint handlebars
                   json-jsonlist json-python-json
                   c/c++-clang c/c++-cppcheck c/c++-gcc
                   python-pylint python-pycompile lsp-ui))
-  (setq-default flycheck-flake8-maximum-line-length 100)
-  ;; python-flake8
-  ;; ======================== Python ========================
-  (require 'flycheck-mypy))
+  (setq-default flycheck-flake8-maximum-line-length 100))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PYTHON
@@ -53,13 +40,13 @@
   ;; lsp-pyls-plugins-pylint-args [ "--errors-only" ]
   ;; lsp-pyls-configuration-sources ["pycodestyle"]
   ;; lsp-pyls-plugins-pylint-enabled nil ;; disable to ensure performance
-  (setq lsp-pyls-plugins-pycodestyle-ignore '("E501" "E111")
+  (setq lsp-pyls-plugins-pycodestyle-ignore '("E111")
         lsp-pyls-plugins-pycodestyle-max-line-length 120
         lsp-pyls-plugins-pylint-enabled nil
         lsp-pyls-plugins-pylint-args ["--errors-only"]))
 
 (after! lsp-python-ms
-  (setq lsp-python-ms-python-executable-cmd "python3"))
+  (setq lsp-python-ms-python-executable-cmd "python"))
 
 (after! conda
   (when IS-LINUX
