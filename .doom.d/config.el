@@ -23,6 +23,7 @@
 (setq confirm-kill-emacs nil)
 ;; theme
 (load-theme 'doom-solarized-light t)
+(set-face-underline 'button nil)
 
 ;; all-the-icons
 (setq doom-font (font-spec :family "DejaVuSansMono NF" :size 15 :weight 'normal)
