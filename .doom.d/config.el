@@ -46,22 +46,27 @@
 ;; 默认起始目录
 (setq default-directory "E:\\Notes")
 
-;; private protobuf-mode
-;; Doom has modified `use-package's `:load-path' to expand relative paths from. e.g. ~/.doom.d/lisp/package
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TOOLS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Doom has modified use-package :load-path to expand relative paths from. e.g. ~/.doom.d/lisp/package
 (use-package protobuf-mode
-  :load-path "modules/private/proto")
-;; (add-load-path! "modules/private/proto")
-(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
+  :load-path "modules/private/proto"
+  :init
+  (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode)))
 
 ;; Projectile
-(setq projectile-require-project-root t)
 (use-package projectile
+  :init
+  (setq projectile-require-project-root t)
   :config
   (cond
-   ;; If fd exists, use it for git and generic projects. fd is a rust program
-   ;; that is significantly faster than git ls-files or find, and it respects
-   ;; .gitignore. This is recommended in the projectile docs.
    ((executable-find "fd")
     (setq-default projectile-generic-command "fd . -0 --type f --color=never"))
    ((executable-find "rg")
     (setq projectile-generic-command "rg -0 --files --follow --color=never --hidden"))))
+
+;; 解决搜索里出现unicode字符,造成rg不能使用,https://github.com/raxod502/prescient.el/issues/43
+(after! counsel
+  ;; (setq counsel-rg-base-command "rg -M 240 --with-filename --no-heading --line-number --color never %s || true")
+  (setf (alist-get 'counsel-rg ivy-re-builders-alist) #'ivy--regex-plus))
