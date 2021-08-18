@@ -5,11 +5,18 @@
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
   (add-hook 'org-mode-hook (lambda () (org-content 0)))
+  (add-hook 'org-mode-hook (lambda () (org-fancy-priorities-mode 1)))
   (add-hook 'org-mode-hook (lambda () (prettify-symbols-mode 1)))
+
   (setq-default prettify-symbols-alist '(("#+BEGIN_SRC" . ?✎)
                                          ("#+END_SRC" . ?∷)
                                          ("#+begin_src" . ?✎)
-                                         ("#+end_src" . ?∷)))
+                                         ("#+end_src" . ?∷)
+                                         ("#+BEGIN_QUOTE" . ?»)
+                                         ("#+END_QUOTE" . ?«)
+                                         ("#+begin_quote" . ?»)
+                                         ("#+end_quote" . ?«)))
+
   (setq org-directory (expand-file-name "E:\\temp\\gtd")
         org-agenda-files (directory-files-recursively org-directory "\\.org$")
         org-ellipsis " ▼ "
