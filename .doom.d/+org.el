@@ -25,6 +25,9 @@
         '(("t" "Personal todo" entry
            (file+headline +org-capture-todo-file "Inbox")
            "* TODO %U %?\n%i" :prepend t)
+          ("o" "Personal todo without timestamp" entry
+           (file+headline +org-capture-todo-file "Inbox")
+           "* TODO %?\n%iSCHEDULED: %T\n" :prepend t)
           ("n" "Personal notes" entry
            (file+headline +org-capture-notes-file "Inbox")
            "* %U %?\n%i\nSCHEDULED: %T" :prepend t :kill-buffer t)
