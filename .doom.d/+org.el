@@ -4,7 +4,7 @@
 (after! org
   (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-  (add-hook 'org-mode-hook (lambda () (org-content 0)))
+  ;; (add-hook 'org-mode-hook (lambda () (org-content 0)))
   (add-hook 'org-mode-hook (lambda () (org-fancy-priorities-mode 1)))
   (add-hook 'org-mode-hook (lambda () (prettify-symbols-mode 1)))
 
@@ -19,10 +19,11 @@
 
   (setq org-directory (expand-file-name "E:\\temp\\gtd")
         org-agenda-files (directory-files-recursively org-directory "\\.org$")
-        org-ellipsis " ▼ "
+        org-default-notes-file (concat org-directory "\\notes.org")
+        org-ellipsis " ↩ " ;; ▼
         org-startup-indented t
-        org-startup-folded 'overview
-        org-image-actual-width 400
+        org-startup-folded 'show2levels
+        org-image-actual-width 300
         org-log-done 'time))
 
 ;; org capture
