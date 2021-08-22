@@ -28,6 +28,13 @@
 ;; org capture
 ;; refer from https://github.com/ztlevi/doom-config
 (after! org
+  (defvar my-org-capture-project-notes-file
+    (concat org-directory "\\projects\\notes.org")
+    "The customize notes file for projects")
+  (defvar my-org-capture-project-todo-file
+    (concat org-directory "\\projects\\todo.org")
+    "The customize todo file for projects.")
+
   (setq org-capture-templates
         '(("t" "Personal todo" entry
            (file+headline +org-capture-todo-file "Inbox")
@@ -46,14 +53,14 @@
           ;; {todo,notes,changelog}.org file is found in a parent directory.
           ("p" "Templates for projects")
           ("pt" "Project todo" entry    ; {project-root}/todo.org
-           (file+headline +org-capture-project-todo-file "Inbox")
-           "* TODO %?\n%i" :prepend t :kill-buffer t)
+           (file+headline my-org-capture-project-todo-file "Inbox")
+           "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
           ("pn" "Project notes" entry   ; {project-root}/notes.org
-           (file+headline +org-capture-project-notes-file "Inbox")
-           "* TODO %?\n%i" :prepend t :kill-buffer t)
+           (file+headline my-org-capture-project-notes-file "Inbox")
+           "* NOTE %?\n%i\n%a" :prepend t :kill-buffer t)
           ("pc" "Project changelog" entry ; {project-root}/changelog.org
-           (file+headline +org-capture-project-notes-file "Unreleased")
-           "* TODO %?\n%i" :prepend t :kill-buffer t)))
+           (file+headline my-org-capture-project-notes-file "Unreleased")
+           "* NOTE %?\n%i\n%a" :prepend t :kill-buffer t)))
 
   (setq org-log-into-drawer "LOGBOOK"))
 
