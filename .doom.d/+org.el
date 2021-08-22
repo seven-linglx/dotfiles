@@ -35,6 +35,14 @@
     (concat org-directory "\\projects\\todo.org")
     "The customize todo file for projects.")
 
+  (defun +org-capture-project-heading ()
+    (if-let ((project (project-root (project-current 'prompt))))
+        (let ((headline (org-find-exact-headline-in-buffer project)))
+          (goto-char (or headline (point-max)))
+          (unless headline (insert "\n* " project))
+          (org-capture-put :target-entry-p t))
+      (user-error "No project selected")))
+
   (setq org-capture-templates
         '(("t" "Personal todo" entry
            (file+headline +org-capture-todo-file "Inbox")
@@ -53,14 +61,14 @@
           ;; {todo,notes,changelog}.org file is found in a parent directory.
           ("p" "Templates for projects")
           ("pt" "Project todo" entry    ; {project-root}/todo.org
-           (file+headline my-org-capture-project-todo-file "Inbox")
-           "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+           (file+function my-org-capture-project-todo-file +org-capture-project-heading)
+           "* TODO %?\n%i\n%a\n" :prepend t :kill-buffer t)
           ("pn" "Project notes" entry   ; {project-root}/notes.org
-           (file+headline my-org-capture-project-notes-file "Inbox")
-           "* NOTE %?\n%i\n%a" :prepend t :kill-buffer t)
+           (file+function my-org-capture-project-notes-file +org-capture-project-heading)
+           "* NOTE %?\n%i\n%a\n" :prepend t :kill-buffer t)
           ("pc" "Project changelog" entry ; {project-root}/changelog.org
-           (file+headline my-org-capture-project-notes-file "Unreleased")
-           "* NOTE %?\n%i\n%a" :prepend t :kill-buffer t)))
+           (file+function my-org-capture-project-notes-file +org-capture-project-heading)
+           "* NOTE %?\n%i\n%a\n" :prepend t :kill-buffer t)))
 
   (setq org-log-into-drawer "LOGBOOK"))
 
