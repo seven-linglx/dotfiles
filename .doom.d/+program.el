@@ -45,8 +45,8 @@
         lsp-pyls-plugins-pylint-enabled nil
         lsp-pyls-plugins-pylint-args ["--errors-only"]))
 
-(after! lsp-python-ms
-  (setq lsp-python-ms-python-executable-cmd "python"))
+;; (after! lsp-python-ms
+;;   (setq lsp-python-ms-python-executable-cmd "python"))
 
 (after! conda
   (when IS-LINUX

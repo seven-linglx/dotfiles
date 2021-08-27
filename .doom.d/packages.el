@@ -10,7 +10,7 @@
                    ;; company-anaconda
                    ;; pyimport)
 
-(package! lsp-python-ms)
+;; (package! lsp-python-ms)
 (package! indent-guide)
 
 ;; org标题美化
