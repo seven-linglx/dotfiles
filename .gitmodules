@@ -10,3 +10,9 @@
 [submodule "ohmyzsh"]
 	path = ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "tmux/tmux-powerline"]
+	path = tmux/tmux-powerline
+	url = https://github.com/erikw/tmux-powerline.git
+[submodule "tmux/tmux-solarized"]
+	path = tmux/tmux-solarized
+	url = https://github.com/seven-linglx/tmux-solarized.git
