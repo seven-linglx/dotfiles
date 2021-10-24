@@ -1,5 +1,0 @@
-alias t='tig'
-alias ts='tig status'
-alias tsw='tig show'
-alias tl='tig log'
-alias tb='tig blame -C'

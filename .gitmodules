@@ -1,9 +1,12 @@
 [submodule "custom/plugins/zsh-syntax-highlighting"]
-	path = oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	path = ohmyzsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "custom/plugins/zsh-autosuggestions"]
-	path = oh-my-zsh/custom/plugins/zsh-autosuggestions
+	path = ohmyzsh/custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule "custom/plugins/zsh-interactive-cd"]
-	path = oh-my-zsh/custom/plugins/zsh-interactive-cd
+	path = ohmyzsh/custom/plugins/zsh-interactive-cd
 	url = https://github.com/changyuheng/zsh-interactive-cd.git
+[submodule "ohmyzsh"]
+	path = ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git

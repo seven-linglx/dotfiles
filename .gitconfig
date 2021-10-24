@@ -5,7 +5,7 @@
 	default = matching
 [core]
 	trustctime = false
-	editor = E:/cygwin64/bin/vim.exe
+	editor = vim
 	filemode = false
 	autocrlf = input
 	safecrlf = true
