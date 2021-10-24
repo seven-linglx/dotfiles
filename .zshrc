@@ -1,10 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/oh-my-zsh
+export ZSH=$HOME/dotfiles/ohmyzsh
 export EDITOR='vim'
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
-# anaconda
-export PATH=/cygdrive/c/ProgramData/Anaconda3:$PATH
+
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Set name of the theme to load.
@@ -87,12 +86,9 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias tmux="TERM=screen-256color tmux -2"
-alias te="tree -aL 2"
-alias ls="ls -1 --color"
-alias gs="git status"
-alias glg="git lg"
+source ~/dotfiles/.git.alias
+source ~/dotfiles/.tools.alias
+
+# fzf
 export FZF_ZSH=/etc/profile.d
 [ -f $FZF_ZSH/fzf.zsh ] && source $FZF_ZSH/fzf.zsh
