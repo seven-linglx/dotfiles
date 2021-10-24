@@ -1,0 +1,9 @@
+# git
+alias gs="git status"
+alias glg="git lg"
+alias glo="git log --oneline -n5"
+alias gc="git commit"
+alias gb="git branch"
+# tig
+alias ts="tig status"
+

@@ -1,0 +1,4 @@
+alias zshconfig="vim ~/.zshrc"
+alias tmux="TERM=screen-256color tmux -2"
+alias te="tree -aL 2"
+alias ls="ls -1 --color"
