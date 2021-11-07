@@ -79,7 +79,8 @@
   (setq org-super-agenda-header-separator "==============\n")  ;; 9472
   (setq org-agenda-log-mode-items '(clock closed state))
   ;; 默认显示节假日
-  (setq org-agenda-include-diary t)
+  (setq org-agenda-include-diary nil)
+  (setq org-agenda-start-day nil)
 
   ;; https://old.reddit.com/r/emacs/comments/hnf3cw/my_orgmode_agenda_much_better_now_with_category/
   (setq org-agenda-category-icon-alist
@@ -105,7 +106,6 @@
   (setq org-agenda-skip-scheduled-if-done nil
         org-agenda-skip-deadline-if-done nil
         org-agenda-compact-blocks t
-        ;; org-agenda-start-day "-1d"
         ;; org-agenda-start-on-weekday 1
         org-super-agenda-header-map nil
         org-agenda-span 'week)
