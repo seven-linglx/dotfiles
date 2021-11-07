@@ -49,8 +49,8 @@ noremap K %
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 runtime macros/matchit.vim
-set background=dark
-colorscheme hybrid
+set background=light
+colorscheme solarized
 
 " plugin
 call plug#begin('~/.vim/plugged')
@@ -59,6 +59,7 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " The NERD Commenter
