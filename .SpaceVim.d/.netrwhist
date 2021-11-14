@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/linglx/catkin_mems_driver/src/cluster'
-let g:netrw_dirhist_2='/home/linglx/catkin_mems_driver/src'
-let g:netrw_dirhist_3='/home/linglx/ROSProjects/localization_huren'
