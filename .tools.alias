@@ -1,4 +1,8 @@
 alias zshconfig="vim ~/.zshrc"
-alias tmux="TERM=screen-256color tmux -2"
+# alias tmux="TERM=screen-256color tmux -2"
 alias te="tree -aL 2"
 alias ls="ls -1 --color"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias nvim='~/Applications/nvim.appimage'
