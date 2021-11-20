@@ -6,9 +6,10 @@
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 
-;; (disable-packages! anaconda-mode
-                   ;; company-anaconda
-                   ;; pyimport)
+(disable-packages! anaconda-mode
+                   company-anaconda
+                   lsp-python-ms
+                   pyimport)
 
 ;; (package! lsp-python-ms)
 (package! indent-guide)

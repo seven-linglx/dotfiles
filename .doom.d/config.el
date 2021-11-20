@@ -12,7 +12,7 @@
 (setq-default which-key-idle-delay 0.5)
 (setq-default which-key-mode t)
 
-;; 设置系统时间显示方式
+;; 设置系统时间显示方式 "zh_CN.UTF-8"
 (setq system-time-locale "C")
 ;; 打开文件时, 光标自动定位到上次停留的位置
 (save-place-mode 1)
@@ -24,6 +24,8 @@
 ;; theme
 (load-theme 'doom-solarized-light t)
 (set-face-underline 'button nil)
+;; Use format-all by default
+(setq +format-with-lsp nil)
 
 ;; all-the-icons
 (setq doom-font (font-spec :family "DejaVuSansMono NF" :size 15 :weight 'normal)
@@ -35,8 +37,6 @@
 (setq shell-file-name (executable-find "zsh.exe"))
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
 (add-to-list 'exec-path "C:/Users/Administrator.EATL6THPQMCW8BZ/AppData/Local/Programs/Python/Python38")
-
-(setq lsp-ui-flycheck-enable nil)
 
 ;; 国内源
 (setq package-archives '(("melpa-cn" . "http://mirrors.cloud.tencent.com/elpa/melpa/")

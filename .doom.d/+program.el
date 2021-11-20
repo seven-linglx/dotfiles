@@ -20,7 +20,8 @@
                 '(javascript-jshint handlebars
                   json-jsonlist json-python-json
                   c/c++-clang c/c++-cppcheck c/c++-gcc
-                  python-pylint python-pycompile lsp-ui))
+                  python-pylint python-flake8 python-mypy
+                  python-pyright python-pycompile))
   (setq-default flycheck-flake8-maximum-line-length 100))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -40,8 +41,16 @@
   ;; lsp-pyls-plugins-pylint-args [ "--errors-only" ]
   ;; lsp-pyls-configuration-sources ["pycodestyle"]
   ;; lsp-pyls-plugins-pylint-enabled nil ;; disable to ensure performance
-  (setq lsp-pyls-plugins-pycodestyle-ignore '("E111")
+  (setq lsp-pyls-disable-warning t)
+  (setq lsp-pyls-plugins-pycodestyle-enabled t
         lsp-pyls-plugins-pycodestyle-max-line-length 120
+        lsp-pyls-plugins-pycodestyle-ignore ["E501" "E111" "D103" "D101" "D100"]
+        lsp-pyls-plugins-flake8-enabled nil
+        lsp-pyls-plugins-flake8-ignore ["E501"]
+        lsp-pyls-plugins-pydocstyle-enabled nil
+        lsp-pyls-plugins-pydocstyle-ignore ["D101" "D100" "D103"]
+        lsp-pyls-plugins-pyflakes-enabled nil
+        lsp-pyls-plugins-mccabe-enabled nil
         lsp-pyls-plugins-pylint-enabled nil
         lsp-pyls-plugins-pylint-args ["--errors-only"]))
 
