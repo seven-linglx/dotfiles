@@ -1,0 +1,18 @@
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[directory]
+truncation_length = 5
+truncation_symbol = "…/"
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+# symbol = "🍣 "
+style = "bold yellow"
+
+[cmake]
+symbol = "🔰 "
+# format = "via [$symbol($version )]($style)"
