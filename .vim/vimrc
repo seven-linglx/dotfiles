@@ -35,22 +35,29 @@ inoremap <C-l> <Right>
 " imap <C-e> <End>
 " imap <C-d> <Delete>
 
+" clipboard
+nnoremap <leader>p "+gp
+nnoremap <leader>y "+y
+
 " 切换buffer
 nnoremap [p :bprevious<CR>
 nnoremap [n :bnext<CR>
 
 " Normal mode shortcut
 nnoremap <space>fs :w<CR>
-nmap <leader>h ^
-nmap <leader>l $
+nnoremap <leader>h ^
+nnoremap <leader>l $
 noremap \ ,
 noremap K %
 "<C-l>通常用于清除并重绘显示屏（参见 :h CTRL-L）。而新的映射项，是在原有基础之上增加了暂时关闭查找高亮的功能
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 runtime macros/matchit.vim
-set background=dark
-colorscheme hybrid
+set background=light
+colorscheme solarized8
+
+" json comment highlight
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " plugin
 call plug#begin('~/.vim/plugged')
@@ -59,6 +66,7 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " The NERD Commenter
@@ -83,3 +91,21 @@ let g:airline#extensions#tabline#enabled = 1 "显示窗口tab和buffer
 let g:indentLine_char_list = ['¦', '┆', '┊']
 let g:indentLine_enabled = 1
 map <leader>ll :IndentLinesToggle<CR>
+
+" coc.nvim
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
