@@ -1,183 +1,63 @@
-// 将键绑定放入此文件中以覆盖默认值
+// Place your key bindings in this file to override the defaultsauto[]
 [
     {
+        "key": "ctrl+alt+j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
         "key": "ctrl+j",
-        "command": "cursorDown",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+k",
-        "command": "cursorUp",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+h",
-        "command": "cursorLeft",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "cursorRight",
-        "when": "textInputFocus"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "extension.vim_ctrl+d",
-        "when": "editorTextFocus && vim.active && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+q",
-        "command": "-workbench.action.quit"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "extension.vim_ctrl+i",
-        "when": "editorTextFocus && vim.active && vim.use<C-i> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-extension.vim_ctrl+i",
-        "when": "editorTextFocus && vim.active && vim.use<C-i> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+o",
-        "command": "extension.vim_ctrl+o",
-        "when": "editorTextFocus && vim.active && vim.use<C-o> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+o",
-        "command": "-extension.vim_ctrl+o",
-        "when": "editorTextFocus && vim.active && vim.use<C-o> && !inDebugRepl"
-    },
-    {
-        "key": "ctrl+w",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "ctrl+w",
-        "command": "-workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "ctrl+tab",
-        "command": "workbench.action.openNextRecentlyUsedEditorInGroup"
-    },
-    {
-        "key": "ctrl+tab",
-        "command": "-workbench.action.openNextRecentlyUsedEditorInGroup"
-    },
-    {
-        "key": "ctrl+tab",
-        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
-    },
-    {
-        "key": "ctrl+tab",
-        "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
-    },
-    {
-        "key": "ctrl+shift+w",
-        "command": "workbench.action.quickSwitchWindow"
-    },
-    {
-        "key": "ctrl+shift+w",
-        "command": "-workbench.action.closeWindow"
-    },
-    {
-        "key": "ctrl+b",
-        "command": "-extension.vim_ctrl+b",
-        "when": "editorTextFocus && vim.active && vim.use<C-b> && !inDebugRepl && vim.mode != 'Insert'"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-expandLineSelection",
-        "when": "textInputFocus"
-    },
-    { 
-        "key": "F3",
-        "command": "toggle",
-        "when": "editorTextFocus",
-        "args": {
-          "id": "minimap", // id must be unique
-          "value": [
-            {
-              "editor.minimap.enabled": true,
-            },
-            {
-              "editor.minimap.enabled": false,
-            }
-          ]
-        }
-    },
-    { 
-        "key": "F4",
-        "command": "toggle",
-        "when": "editorTextFocus",
-        "args": {
-          "id": "line number", // id must be unique
-          "value": [
-            {
-              "editor.lineNumbers": "relative",
-              "editor.folding": true,
-              "editor.glyphMargin": true,
-            },
-            {
-              "editor.lineNumbers": "off",
-              "editor.folding": false,
-              "editor.glyphMargin": false,
-            }
-          ]
-        }
-    },
-    {
-        "key": "shift+alt+f",
-        "command": "-editor.action.formatDocument",
-        "when": "editorTextFocus && !editorReadonly"
+        "command": "-workbench.action.togglePanel"
     },
     {
         "key": "ctrl+shift+i",
-        "command": "editor.action.formatDocument"
+        "command": "-workbench.action.toggleDevTools",
+        "when": "isDevelopment"
     },
     {
-        "key": "ctrl+r",
-        "command": "-workbench.action.openRecent"
+        "key": "shift+alt+f",
+        "command": "-editor.action.formatDocument.none",
+        "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
     },
     {
-        "key": "down",
-        "command": "selectNextSuggestion",
-        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+        "key": "ctrl+shift+i",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
     },
     {
-        "key": "down",
-        "command": "list.focusDown",
-        "when": "listFocus && !inputFocus"
+        "key": "ctrl+alt+k",
+        "command": "workbench.action.terminal.focus"
     },
     {
-        "key": "down",
-        "command": "workbench.action.interactivePlayground.arrowDown",
-        "when": "interactivePlaygroundFocus && !editorTextFocus"
+        "key": "ctrl+n",
+        "command": "-workbench.action.files.newUntitledFile"
     },
     {
-        "key": "down",
-        "command": "showNextParameterHint",
-        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "ctrl+alt+r",
-        "command": "python.execInTerminal"
+        "key": "ctrl+shift+e",
+        "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "ctrl+h",
-        "command": "-extension.vim_ctrl+h",
-        "when": "editorTextFocus && vim.active && vim.use<C-h> && !inDebugRepl"
+        "key": "ctrl+n",
+        "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "ctrl+h",
-        "command": "-editor.action.startFindReplaceAction"
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
     },
     {
-        "key": "ctrl+r",
-        "command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
-        "when": "inQuickOpen && inRecentFilesPicker"
+        "key": "alt+1",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
     },
+    {
+        "key": "alt+1",
+        "command": "-workbench.action.openEditorAtIndex1"
+    }
 ]
