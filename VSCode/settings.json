@@ -1,9 +1,25 @@
 {
-    "vim.easymotion": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.showStartPage": false,
+    "files.associations": {
+        "*.log.*": "log",
+        "*.log": "log",
+        "*.arxml": "xml"
+    },
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
+    "vim.statusBarColorControl": false,
     "vim.hlsearch": true,
     "vim.leader": ",",
+    "vim.camelCaseMotion.enable": true,
+    "vim.statusBarColors.easymotioninputmode": "#007acc",
+    "vim.easymotionMarkerForegroundColorOneChar": "007acc",
+    "vim.sneak": false,
+    "vim.textwidth": 120,
+    "vim.foldfix": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": false,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -16,7 +32,8 @@
         },
         {
             "before": [
-                "<C-h>"
+                "ctrl",
+                "h"
             ],
             "after": [],
             "commands": [
@@ -29,7 +46,7 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
-                "<leader>",
+                "<space>",
                 "f",
                 "s"
             ],
@@ -51,6 +68,118 @@
             "commands": [
                 {
                     "command": "editor.action.commentLine",
+                    "args": []
+                }
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "L"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.blockComment",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "d"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.peekDefinition",
+                    "args": []
+                }
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "i"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.peekImplementation",
+                    "args": []
+                }
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.peekDeclaration",
+                    "args": []
+                }
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "v"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.splitEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "h"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusFirstEditorGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "l"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.focusSecondEditorGroup",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "d"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.closeActiveEditor",
                     "args": []
                 }
             ]
@@ -129,6 +258,15 @@
         },
         {
             "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
                 "<C-n>"
             ],
             "after": [],
@@ -140,59 +278,189 @@
             ]
         }
     ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "U"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo",
+                }
+            ]
+        },
+    ],
     "vim.handleKeys": {
         "<C-a>": false,
-        "<C-f>": false
+        "<C-f>": false,
+        "<C-b>": false,
+        "<C-j>": false
     },
-    "vim.useCtrlKeys": true,
-    "editor.fontSize": 16,
-    "editor.lineHeight": 23,
-    // "C_Cpp.clang_format_path": "/usr/bin/clang-format-5.0",
-    "C_Cpp.clang_format_fallbackStyle": "Google",
-    "workbench.activityBar.visible": false,
+    "editor.lineHeight": 20,
     "python.linting.pylintArgs": [
-        "--disable-msg=E1129"
-    ],
-    "python.linting.flake8Args": [
-        "--max-line-length=120",
-        "--ignore=E501, E262",
+        "--disable-msg=E1129",
+        "--enable=W0614"
     ],
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "window.zoomLevel": 0,
-    "editor.minimap.enabled": false,
     "workbench.statusBar.visible": true,
-    "update.channel": "none",
-    "window.menuBarVisibility": "default",
     "editor.lineNumbers": "relative",
-    "editor.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120,
     "workbench.editor.enablePreview": false,
-    "editor.tabSize": 4,
-    "search.location": "panel",
-    "vim.textwidth": 120,
     "workbench.startupEditor": "newUntitledFile",
-    "C_Cpp.errorSquiggles": "Enabled",
     "workbench.editor.openSideBySideDirection": "right",
     "editor.folding": true,
     "editor.glyphMargin": true,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "terminal.external.windowsExec": "E:/cygwin64/bin/mintty.exe",
-    "terminal.integrated.rightClickBehavior": "selectWord",
-    "workbench.iconTheme": "vscode-icons",
-    "terminal.integrated.rendererType": "dom",
-    "vim.foldfix": true,
-    "editor.showFoldingControls": "always",
-    "workbench.colorTheme": "Monokai Dimmed",
-    "C_Cpp.updateChannel": "Insiders",
-    "files.associations": {
-        "*.txt": "cpp"
+    "editor.fontLigatures": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E501, E262, E114, E111",
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length 120",
+        "--aggressive"
+    ],
+    "python.formatting.yapfArgs": [
+        "--style={based_on_style: yapf, indent_width: 4, column_limit: 120}"
+    ],
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "120",
+        "--skip-string-normalization",
+    ],
+    "explorer.sortOrder": "type",
+    "python.autoComplete.addBrackets": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
     },
-    "editor.formatOnPaste": true,
-    "python.formatting.provider": "yapf",
-    "vsicons.dontShowNewVersionMessage": true,
+    "editor.quickSuggestionsDelay": 5,
+    
+    "python.jediEnabled": false,
+    "extensions.autoUpdate": false,
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "workbench.sideBar.location": "left",
+    "workbench.colorCustomizations": {
+        // "editor.selectionBackground": "#0052cc",    // Currently SELECTED text
+        "editor.selectionHighlightBackground": "#FFFF96", // Same content as selection
+        // "editor.findMatchBackground": "#FFFF96",  //搜索選取字色 'you can set other color'
+        // "editor.findMatchHighlightBackground": "#00000000", //搜索選取字改透明色 'required important'
+        // "editor.wordHighlightBackground": "#00000000",  //全文相同選取字改透明色 'required important'
+        "editor.lineHighlightBackground": "#ffd00033"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    
     "liveServer.settings.donotShowInfoMsg": true,
-    "editor.renderControlCharacters": false,
-    "editor.formatOnSave": true,
+    "python.terminal.executeInFileDir": true,
+    
+    "python.linting.pylintEnabled": true,
+    "java.requirements.JDK11Warning": false,
+    "java.saveActions.organizeImports": true,
+    "debug.console.fontSize": 13,
+    "code-runner.runInTerminal": true,
+    "java.debug.settings.console": "externalTerminal",
+    "workbench.colorTheme": "One Monokai",
+    "editor.minimap.enabled": false,
+    "window.openFoldersInNewWindow": "on",
+    "eslint.format.enable": true,
+    "workbench.tree.indent": 16,
+    "editor.renderControlCharacters": true,
+    "search.followSymlinks": false,
+    "github.gitAuthentication": false,
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
+    "python.languageServer": "Pylance",
+    "window.restoreWindows": "none",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.defaultDateFormat": null,
+    "gitlens.defaultDateStyle": "absolute",
+    "python.analysis.completeFunctionParens": true,
+    "gitlens.currentLine.pullRequests.enabled": false,
+    "C_Cpp.clang_format_sortIncludes": true,
+    "editor.cursorSurroundingLines": 3,
+    "python.formatting.provider": "yapf",
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "terminal.integrated.fontSize": 13,
+    "cmake.configureOnOpen": false,
+    "editor.rulers": [
+        100,
+        120
+    ],
+    "files.watcherExclude": {
+        "**/build/**": true,
+        "**/dependency/**": true,
+        "**/logs/**": true,
+        "**/open_source/**": true,
+        "**/patch/**": true
+    },
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "NOTE",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "background": "yellow",
+            "rulerColour": "yellow",
+            "iconColour": "yellow"
+        },
+        "BUG": {
+            "icon": "bug",
+            "background": "red"
+        },
+        "FIXME": {
+            "icon": "flame",
+            "background": "red",
+            "iconColour": "red",
+        },
+        "TAG": {
+            "background": "blue",
+            "icon": "tag",
+            "rulerColour": "blue",
+            "iconColour": "blue",
+            "rulerLane": "full"
+        },
+        "DONE": {
+            "background": "green",
+            "icon": "issue-closed",
+            "rulerColour": "green",
+            "iconColour": "green",
+        },
+        "NOTE": {
+            "background": "#f90",
+            "icon": "note",
+            "rulerColour": "#f90",
+            "iconColour ": "#f90"
+        }
+    },
+    "editor.formatOnSaveMode": "modifications",
+    "git.autofetchPeriod": 60,
+    "files.eol": "\n",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.showTabs": false,
+    "todo-tree.filtering.scopes": [],
+    "todo-tree.highlights.enabled": false,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontFamily": "'Source Code Pro for Powerline', Consolas, 'Courier New', monospace",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "cmake.buildEnvironment": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+    },
+    "cmake.configureOnEdit": false,
+    "cmake.autoSelectActiveFolder": false,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "workbench.list.automaticKeyboardNavigation": false,
+    "rust-client.disableRustup": true,
 }
