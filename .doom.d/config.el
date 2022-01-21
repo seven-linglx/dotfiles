@@ -34,9 +34,10 @@
 
 (setq line-spacing 0.3)
 (setq display-line-numbers-type 'relative)
-(setq shell-file-name (executable-find "zsh.exe"))
+;; NOTE only use on windows
+(if (executable-find "zsh.exe") (setq shell-file-name (executable-find "zsh.exe")))
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
-(add-to-list 'exec-path "C:/Users/Administrator.EATL6THPQMCW8BZ/AppData/Local/Programs/Python/Python38")
+(if (executable-find "clangd") (add-to-list 'exec-path (executable-find "clangd")))
 
 ;; 国内源
 (setq package-archives '(("melpa-cn" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
