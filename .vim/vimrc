@@ -40,8 +40,9 @@ nnoremap <leader>p "+gp
 nnoremap <leader>y "+y
 
 " 切换buffer
-nnoremap [p :bprevious<CR>
-nnoremap [n :bnext<CR>
+nnoremap tp :bprevious<CR>
+nnoremap tn :bnext<CR>
+nnoremap tc :bdelete<CR>
 
 " Normal mode shortcut
 nnoremap <space>fs :w<CR>
