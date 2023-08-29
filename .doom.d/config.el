@@ -28,8 +28,8 @@
 (setq +format-with-lsp nil)
 
 ;; all-the-icons
-(setq doom-font (font-spec :family "DejaVuSansMono NF" :size 15 :weight 'normal)
-      doom-variable-pitch-font (font-spec :family "Fira Mono for Powerline")
+(setq doom-font (font-spec :family "DejaVuSansMono NF" :size 18 :weight 'normal)
+      doom-variable-pitch-font (font-spec :family "DejaVuSansMono NF")
       doom-unicode-font (font-spec :family "Source Code Pro for Powerline"))
 
 (setq line-spacing 0.3)
@@ -44,7 +44,14 @@
                          ("org-cn"   . "http://mirrors.cloud.tencent.com/elpa/org/")
                          ("gnu-cn"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")))
 ;; 默认起始目录
-(setq default-directory "E:\\Notes")
+(setq default-directory "~/Notes")
+
+;; pyim
+(setq default-input-method "pyim")
+(setq pyim-page-length 10)
+(setq pyim-default-scheme 'wubi)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
+(setq pyim-page-tooltip '(posframe popup minibuffer))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TOOLS

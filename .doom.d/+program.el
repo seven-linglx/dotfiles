@@ -32,7 +32,7 @@
   (setq python-indent-offset 4
         flycheck-python-pylint-executable "pylint"
         flycheck-python-flake8-executable "flake8")
-        
+
   ;; (add-hook! python-mode (setq-default flycheck-checker "python-flake8"))
   ;; Resolve pylint cannot find relative PYTHONPATH issue
   (add-hook! python-mode (setenv "PYTHONPATH" (doom-project-root))))
@@ -65,6 +65,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CC
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 (after! cc-mode
   (c-add-style

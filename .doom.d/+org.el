@@ -17,7 +17,7 @@
                                          ("#+begin_quote" . ?»)
                                          ("#+end_quote" . ?«)))
 
-  (setq org-directory (expand-file-name "E:\\temp\\gtd")
+  (setq org-directory (expand-file-name "~/temp/gtd")
         org-agenda-files (directory-files-recursively org-directory "\\.org$")
         org-default-notes-file (concat org-directory "\\notes.org")
         org-ellipsis " ↩ " ;; ▼

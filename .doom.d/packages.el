@@ -24,3 +24,8 @@
 (package! org-super-agenda)
 ;; replace priority with icons
 (package! org-fancy-priorities)
+
+;; pyim
+(package! pyim)
+(package! popup)
+(package! pyim-wbdict)
