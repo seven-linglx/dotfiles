@@ -9,6 +9,8 @@
 	filemode = false
 	autocrlf = input
 	safecrlf = true
+	excludesFile = /home/linglx/.global.gitignore
+	quotePath = true
 [color]
 	ui = true
 [credential]
