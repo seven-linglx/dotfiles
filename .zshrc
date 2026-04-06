@@ -3,6 +3,8 @@ export ZSH=$HOME/dotfiles/ohmyzsh
 export EDITOR='vim'
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+# emacs with fcitx
+export LC_CTYPE=zh_CN.UTF-8
 
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -56,7 +58,7 @@ ZSH_DISABLE_COMPFIX="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast tig zsh-syntax-highlighting zsh-autosuggestions z)
+plugins=(git gitfast tig zsh-syntax-highlighting zsh-autosuggestions zoxide)
 
 # User configuration
 
@@ -90,5 +92,37 @@ source ~/dotfiles/.git.alias
 source ~/dotfiles/.tools.alias
 
 # fzf
-export FZF_ZSH=/etc/profile.d
-[ -f $FZF_ZSH/fzf.zsh ] && source $FZF_ZSH/fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+
+# lantern proxy
+# export HTTPS_PROXY="http://127.0.0.1:38599"
+# export HTTP_PROXY=${HTTPS_PROXY}
+
+# starship
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=$HOME/dotfiles/starship.toml
+
+# doom emacs
+export PATH=$HOME/.emacs.d/bin:$PATH
+
+# llvm
+export PATH=$HOME/tools/clang+llvm-12.0.0-x86_64-linux-gnu-ubuntu-20.04/bin:$PATH
+
+# nodejs
+export PATH=$HOME/tools/node-v22.22.1-linux-x64/bin/:$PATH
+
+# cargo
+. "$HOME/.cargo/env"
+
+# emacs
+export EMACSSHELL=/bin/sh
+
+# rustup
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+
+# opencode
+export PATH=/home/linglx/.opencode/bin:$PATH
+
