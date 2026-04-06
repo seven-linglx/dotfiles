@@ -48,7 +48,7 @@ SortIncludes: false
 SpaceAfterCStyleCast: false
 
 # Configure each individual brace in BraceWrapping
-BreakBeforeBraces: Custom
+BreakBeforeBraces: Attach
 
 # Control of individual brace wrapping cases
 BraceWrapping: {
