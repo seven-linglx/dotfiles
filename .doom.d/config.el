@@ -26,6 +26,13 @@
 (set-face-underline 'button nil)
 ;; Use format-all by default
 (setq +format-with-lsp nil)
+;; format on save
+(setq +format-on-save-enabled-modes
+      '(not cmake-mode
+            emacs-lisp-mode  ; elisp's mechanisms are good enough
+            sql-mode         ; sqlformat is currently broken
+            tex-mode         ; latexindent is broken
+            latex-mode))
 
 ;; all-the-icons
 (setq doom-font (font-spec :family "DejaVuSansMono NF" :size 18 :weight 'normal)
@@ -47,11 +54,11 @@
 (setq default-directory "~/Notes")
 
 ;; pyim
-(setq default-input-method "pyim")
-(setq pyim-page-length 10)
-(setq pyim-default-scheme 'wubi)
-(global-set-key (kbd "C-\\") 'toggle-input-method)
-(setq pyim-page-tooltip '(posframe popup minibuffer))
+;; (setq default-input-method "pyim")
+;; (setq pyim-page-length 10)
+;; (setq pyim-default-scheme 'wubi)
+;; (global-set-key (kbd "C-\\") 'toggle-input-method)
+;; (setq pyim-page-tooltip '(posframe popup minibuffer))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TOOLS

@@ -26,6 +26,6 @@
 (package! org-fancy-priorities)
 
 ;; pyim
-(package! pyim)
-(package! popup)
-(package! pyim-wbdict)
+;; (package! pyim)
+;; (require 'popup)
+;; (package! pyim-wbdict)
