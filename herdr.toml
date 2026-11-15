@@ -1,0 +1,66 @@
+onboarding = false
+
+[theme]
+name = "solarized-light"
+auto_switch = false
+
+# ---------------------------------------------------------------
+# 从 ~/.tmux.conf 迁移的快捷键
+# ---------------------------------------------------------------
+[keys]
+prefix = "ctrl+s"
+
+# bind-key h/j/k/l select-pane -L/-D/-U/-R（与 herdr 默认一致）
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# bind v splitw -h  = 左右分屏
+split_vertical = "prefix+v"
+
+# bind e splitw -v  = 上下分屏（herdr 默认是 prefix+minus）
+split_horizontal = "prefix+e"
+# 让出 prefix+e（herdr 默认的编辑滚动缓冲区）
+edit_scrollback = ""
+
+# 上一个 / 下一个 workspace（herdr 默认未绑定）
+# 注意：prefix+[ 是默认的 copy_mode，故改用 , 和 .
+previous_workspace = "prefix+comma"
+next_workspace = "prefix+period"
+
+# 直接跳 workspace 1-9（herdr 默认未绑定；prefix+1..9 已用于 switch_tab）
+switch_workspace = "prefix+shift+1..9"
+
+# bind r source-file ~/.tmux.conf = 重新加载配置
+reload_config = "prefix+r"
+# 让出 prefix+r（herdr 默认的 resize_mode），挪到 prefix+shift+r
+resize_mode = "prefix+shift+r"
+
+# bind-key C-p popup -w 50% -h 50% -E = 弹出一个当前目录的终端
+[[keys.command]]
+key = "prefix+ctrl+p"
+type = "popup"
+command = "${SHELL:-/usr/bin/zsh}"
+width = "50%"
+height = "50%"
+
+[terminal]
+# set-option -g default-shell /usr/bin/zsh
+default_shell = "/usr/bin/zsh"
+# 新 pane/tab 沿用当前 pane 的目录（对应 popup -d '#{pane_current_path}' 的习惯）
+new_cwd = "follow"
+
+[ui]
+# set-option -g mouse on
+mouse_capture = true
+# tmux_conf_copy_to_os_clipboard=true
+copy_on_select = true
+
+# tab 行右侧状态区：ZOOM 提示 + 日期时间
+tab_bar_right = [
+  { type = "zoom" },
+  { type = "datetime", format = "%Y-%m-%d %H:%M" },
+]
+tab_bar_right_separator = " · "
+status_indicators = "symbols"
