@@ -93,8 +93,8 @@ source ~/dotfiles/.tools.alias
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_DEFAULT_OPTS="--color=light"
+export FZF_DEFAULT_COMMAND='fd --type file --strip-cwd-prefix --follow --hidden --exclude .git'
 
 # lantern proxy
 # export HTTPS_PROXY="http://127.0.0.1:38599"
