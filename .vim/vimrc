@@ -23,6 +23,7 @@ set smartcase "智能判断搜索时是否大小写敏感，当搜索词中有�
 
 filetype plugin on
 syntax on
+set termguicolors
 
 let mapleader=","
 inoremap jk <esc>
@@ -68,6 +69,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 call plug#end()
 
 " The NERD Commenter
